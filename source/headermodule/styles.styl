@@ -1,0 +1,42 @@
+// header styles
+home-button-size = 70px
+
+/*==========================================================*/
+header
+    position: -webkit-sticky
+    position: sticky
+    top: 0
+
+#header
+    display: grid
+    grid-template-columns: home-button-size auto
+    padding 15pt 30pt
+    align-items: baseline
+    justify-content: space-between
+    color cd-theme-orange
+    // transition: color 0.5s
+
+#home-button
+    align-self: end
+    height home-button-size
+    width home-button-size
+    
+#navigation-bar
+    align-self: end
+    border solid 4px
+    border-radius 20px
+    padding 0 30px
+    background-color white
+    transition background-color 0.5s
+    a
+        font-family: "Myriad Pro Light"
+        margin-right 20pt
+        font-size 25px
+        line-height: 44px
+
+.orange
+    #header
+        color #fff
+    
+    #navigation-bar
+        background-color cd-theme-orange
