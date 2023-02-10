@@ -14,7 +14,8 @@ appStartup = ->
 scrolled = (evnt) ->
     offset = window.scrollY
     # console.log(offset)
-    if offset > window.innerHeight then document.body.classList.add("orange")
+    heroHeight = window.innerHeight + header.offsetHeight
+    if offset > heroHeight then document.body.classList.add("orange")
     else document.body.classList.remove("orange")
     
 ############################################################
