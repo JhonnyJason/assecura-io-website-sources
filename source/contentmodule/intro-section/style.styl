@@ -1,0 +1,94 @@
+/*==========================================================
+ Variables
+==========================================================*/
+medium-arrow-size = 320px
+big-arrow-size = 720px
+
+/*==========================================================
+ Intro Section
+==========================================================*/
+#intro-section
+    background-color cd-theme-orange
+    color white
+
+/*==========================================================
+ Decoration Frame
+==========================================================*/
+#intro-decoration-frame
+    overflow visible
+
+.no-arrows
+    #medium-arrow
+    #big-arrow
+        opacity 0
+        transform: translate(-50%, -100%)
+
+#medium-arrow
+#big-arrow
+    position absolute
+    left 50%
+    transform translateX(-50%)
+    transition all 0.3s
+
+#medium-arrow
+    top 0
+    height medium-arrow-size
+    width medium-arrow-size
+#big-arrow
+    bottom (-0.25 * big-arrow-size)
+    height: big-arrow-size
+    width: big-arrow-size
+
+/*==========================================================
+ Intro Text Frame
+==========================================================*/
+#intro-text-frame
+    padding 80px
+    // border solid 2px black
+    box-sizing: border-box 
+    display grid
+    grid-template-columns: 1fr 1fr
+    grid-gap 160px
+    background-color cd-theme-orange
+    p
+        line-height: 125%
+    p:last-child
+        margin-bottom: 0
+
+#intro-text-left
+#intro-text-right
+    position relative
+
+#intro-text-right
+    align-self: end
+
+#intro-text-left-content
+    p
+        margin-bottom 48px
+
+#intro-text-right-content
+    p
+        margin-bottom 16px
+        
+/*==========================================================
+ Intro Final Frame
+==========================================================*/
+#intro-final-frame
+    position relative
+
+#intro-final-text-block
+    position relative
+    z-index 1
+    padding 300px 80px 80px 80px
+    h1
+        margin-bottom 20px
+    h2
+        margin-bottom 16px
+#intro-final-images-block
+    position absolute
+    width 50%
+    height 100%
+    top 0
+    right 0
+    border solid 2px black
+    z-index: 0

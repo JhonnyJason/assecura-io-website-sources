@@ -1,6 +1,6 @@
 // globalstyles styles
 /*==========================================================
-Fonts
+ Fonts
 ==========================================================*/
 @font-face
     font-family: 'NotoSans Regular'
@@ -18,7 +18,7 @@ Fonts
     font-display: swap;
 
 /*==========================================================
-Color Theme
+ Color Theme
 ==========================================================*/
 cd-assecura-red = #a61e1e
 cd-theme-orange = #ff5733
@@ -27,21 +27,24 @@ cd-flash = #ff5733
 cd-background = #fff
 
 /*==========================================================
-Global Variables
+ Global Variables
 ==========================================================*/
 max-content-width = 1420px
+inner-content-width = 1024px
+min-screen-height = 650px
 // mobile-side-padding = 15px
 
 
 /*==========================================================
-General Tag Styles
+ Global Tag Styles
 ==========================================================*/
 body
     background-color cd-background
     transition background-color 0.7s
     color cd-foreground
     // font-family: Arial, Helvetica, sans-serif
-    font-family: 'NotoSans Regular'
+    // font-family: 'NotoSans Regular'
+    font-family: 'NotoSans Light'
     font-size: 16px
     width 100%
     overflow-x hidden
@@ -51,15 +54,21 @@ body
 body.orange
     background-color cd-theme-orange
 
-nav
-    font-size: 25pt
+// nav
+//     font-size: 16px
 h1
-    font-size: 60pt
+    font-size: 40px
+    font-family: "NotoSans Light"
+    line-height: 60px
 h2
-    font-size: 15pt
+    font-size: 20px
+    font-family: "NotoSans Light"
+    line-height: 40px
 p
-    font-size: 12pt
+    font-size: 16px
 
+b
+    font-family: "NotoSans Bold"
 
 svg
     height inherit
@@ -71,3 +80,8 @@ footer
     max-width: max-content-width
     margin: auto
 
+/*==========================================================
+ Global Classes
+==========================================================*/
+.dropshadow
+    box-shadow 0 3px 10px 0 #0002

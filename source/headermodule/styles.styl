@@ -3,9 +3,13 @@ home-button-size = 80px
 
 /*==========================================================*/
 header
-    position: -webkit-sticky
-    position: sticky
+    // position: -webkit-sticky
+    // position: sticky
+    position fixed
+    width 100%
     top: 0
+    left 50%
+    transform translateX(-50%)
     z-index 99
 #header
     display: grid
@@ -22,6 +26,7 @@ header
     width home-button-size
     
 #navigation-bar
+    @extends .dropshadow
     position relative
     display grid
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr
@@ -33,7 +38,6 @@ header
     transition background-color 0.7s
     a
         align-self: center
-        font-size 16px
         width: 160px
         text-align: center
 
