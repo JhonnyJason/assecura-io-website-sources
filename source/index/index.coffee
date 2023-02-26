@@ -15,7 +15,10 @@ scrolled = (evnt) ->
     offset = window.scrollY
     # console.log(offset)
     heroHeight = window.innerHeight + header.offsetHeight
-    if offset > heroHeight then document.body.classList.add("orange")
+    orangeEnd = document.body.offsetHeight - footer.offsetHeight - window.innerHeight
+
+    console.log("orangeEnd: #{orangeEnd}")
+    if offset > heroHeight and offset < orangeEnd then document.body.classList.add("orange")
     else document.body.classList.remove("orange")
     
 ############################################################
