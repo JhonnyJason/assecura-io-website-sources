@@ -14,8 +14,8 @@ appStartup = ->
 scrolled = (evnt) ->
     offset = window.scrollY
     # console.log(offset)
-    heroHeight = window.innerHeight + header.offsetHeight
-    orangeEnd = document.body.offsetHeight - footer.offsetHeight - window.innerHeight
+    heroHeight = header.offsetHeight + 0.5 *  window.innerHeight
+    orangeEnd = document.body.offsetHeight - footer.offsetHeight - 0.5 * window.innerHeight
 
     console.log("orangeEnd: #{orangeEnd}")
     if offset > heroHeight and offset < orangeEnd then document.body.classList.add("orange")
