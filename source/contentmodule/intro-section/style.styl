@@ -90,6 +90,31 @@ big-arrow-size = 720px
     height 100%
     top 0
     right 0
-    border solid 2px black
-    box-sizing: border-box
+    // border solid 2px black
+    // box-sizing: border-box
     z-index: 0
+
+    img
+        @extends .dropshadow
+        position absolute
+        border-radius 60px
+        overflow: hidden
+        object-fit: cover
+        background-color white
+        width 260px
+        height 360px
+
+#intro-final-image1
+    left 80px
+    bottom 220px
+    z-index 0
+
+#intro-final-image2
+    left 220px
+    bottom 40px
+    z-index 1
+
+#intro-final-image3
+    left 380px
+    bottom 220px
+    z-index 2

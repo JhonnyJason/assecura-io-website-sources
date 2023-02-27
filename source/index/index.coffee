@@ -20,7 +20,9 @@ scrolled = (evnt) ->
     console.log("orangeEnd: #{orangeEnd}")
     if offset > heroHeight and offset < orangeEnd then document.body.classList.add("orange")
     else document.body.classList.remove("orange")
-    
+    if offset > orangeEnd then document.body.classList.add("no-navbar")
+    else document.body.classList.remove("no-navbar")
+
 ############################################################
 run = ->
     promises = (m.initialize() for n,m of Modules when m.initialize?) 

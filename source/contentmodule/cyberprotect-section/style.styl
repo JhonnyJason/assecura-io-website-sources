@@ -43,16 +43,29 @@
     height 100%
     top 0
     left 0
-    border solid 2px black
-    box-sizing: border-box
+    // border solid 2px black
+    // box-sizing: border-box
     z-index: 0
 
-// #intro-final-text-block
-//     position relative
-//     z-index 1
-//     padding 300px 80px 80px 80px
-//     h1
-//         margin-bottom 20px
-//     h2
-//         margin-bottom 16px
-// #intro-final-images-block
+    img
+        @extends .dropshadow
+        position absolute
+        border-radius 60px
+        overflow: hidden
+        object-fit: cover
+        background-color white
+
+#cyberprotect-image1
+    width 260px
+    height 360px
+    left 80px
+    bottom 230px
+    z-index 0
+
+#cyberprotect-image2
+    width 360px
+    height 260px
+    left 160px
+    bottom 90px
+    z-index 1
+
