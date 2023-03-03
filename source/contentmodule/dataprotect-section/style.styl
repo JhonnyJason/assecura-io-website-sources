@@ -3,10 +3,11 @@
 ==========================================================*/
 #dataprotect-section
     background-color: cd-theme-orange
-    position relative
-    min-height: 100vh
-    min-height: 100lvh
-    height auto
+
+    .fullscreen-frame
+        min-height: 100vh
+        min-height: 100lvh
+        height auto
 
 #dataprotect-text-block
     position relative
@@ -51,10 +52,14 @@
             border solid 2px white
             box-sizing: border-box
             border-radius: 40px
-    p
+    .data-guard-text
+        display flex
+        align-items: center
         margin-left 80px
-        padding 20px
-        line-height: 20px
+        padding 0 20px
+        height 100%
+        p
+            line-height: 20px
     button
         position absolute
         @extends .dropshadow

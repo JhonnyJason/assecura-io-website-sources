@@ -7,10 +7,15 @@ header
     // position: sticky
     position fixed
     width 100%
+    max-width: max-content-width
+    margin: auto
     top: 0
     left 50%
+    transition: transform 0.3s
     transform translateX(-50%)
     z-index 99
+
+
 #header
     display: grid
     grid-template-columns: home-button-size auto
@@ -48,14 +53,21 @@ header
     width 160px
     border-radius: 20px
     height 40px
-.orange
+
+
+header.gone
+    transform translate(-50%, -102%)
+
+header.smaller
+    transform translate(-50%, -60px)
+
+header.inverted
     #header
         color #fff
-    
     #navigation-bar
         background-color cd-theme-orange
 
-.no-navbar
+header.no-navbar
     #navigation-bar
         opacity 0
         z-index -1

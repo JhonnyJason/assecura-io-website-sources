@@ -3,6 +3,7 @@ import * as contentmodule from "./contentmodule.js"
 import * as debugmodule from "./debugmodule.js"
 import * as footermodule from "./footermodule.js"
 import * as headermodule from "./headermodule.js"
+import * as scrolltriggersmodule from "./scrolltriggersmodule.js"
 
 Modules = {
     configmodule,
@@ -10,6 +11,7 @@ Modules = {
     debugmodule,
     footermodule,
     headermodule,
+    scrolltriggersmodule,
 }
 
 export default Modules
