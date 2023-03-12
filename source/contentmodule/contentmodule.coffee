@@ -63,7 +63,7 @@ heroGridLeftScreen = ->
 
 heroGridAnimation = ->
     offset = window.scrollY
-    if offset > window.innerHeight then return
+    if offset > window.innerHeight then return 
 
     upperBorder = 0.15
     lowerBorder = 0.7
