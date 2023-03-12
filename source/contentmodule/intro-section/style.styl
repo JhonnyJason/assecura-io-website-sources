@@ -8,8 +8,14 @@ big-arrow-size = 720px
  Intro Section
 ==========================================================*/
 #intro-section
+    @extends .dropshadow
     background-color cd-theme-orange
     color white
+    padding 0 60px
+    border-radius 60px
+    overflow: visible
+    position relative
+    z-index 1
 
 /*==========================================================
  Decoration Frame
@@ -43,7 +49,7 @@ big-arrow-size = 720px
 /*==========================================================
  Intro Text Frame
 ==========================================================*/
-#intro-text-frame
+#intro-smartbroker-frame
     padding 80px
     // border solid 2px black
     box-sizing: border-box 
@@ -81,7 +87,7 @@ big-arrow-size = 720px
 /*==========================================================
  Intro Final Frame
 ==========================================================*/
-#intro-final-frame
+#intro-danger-frame
     position relative
 
 #intro-final-text-block
@@ -111,7 +117,7 @@ big-arrow-size = 720px
     z-index: 0
 
     img
-        @extends .dropshadow
+        @extends .light-dropshadow
         position absolute
         border-radius 60px
         overflow: hidden

@@ -1,11 +1,7 @@
-/*==========================================================
- Hero Section
-==========================================================*/
 #hero-section
     position relative
-    margin-bottom -60px
 #hero-grid
-    position fixed
+    position absolute
     top  50%
     left 50%
     transform: translate(-50%, -50%)
@@ -14,7 +10,6 @@
     // grid-template-columns: 1fr 1fr
     display flex
     justify-content: space-between
-    z-index -1
 
 #hero-right
 #hero-left
@@ -64,6 +59,14 @@
     position absolute
     bottom 0
     overflow: hidden
-    border-radius 60px 60px 0 0
+
+    #white-triangle
+        position: absolute
+        width 80px
+        height 80px
+        color white
+        top 0
+        left 50%
+        transform translateX(-50%)
 
         

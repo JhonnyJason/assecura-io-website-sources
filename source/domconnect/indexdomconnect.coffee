@@ -3,8 +3,7 @@ indexdomconnect = {name: "indexdomconnect"}
 ############################################################
 indexdomconnect.initialize = () ->
     global.footer = document.getElementById("footer")
-    global.introTextLeft = document.getElementById("intro-text-left")
-    global.introTextRight = document.getElementById("intro-text-right")
+    global.heroGrid = document.getElementById("hero-grid")
     global.header = document.getElementById("header")
     return
     

@@ -1,15 +1,37 @@
-// content styles
-.fullscreen-frame
+/*==========================================================
+ General Content Styles
+==========================================================*/
+.content-frame
+    @extends .full-height
     position relative
     width 100%
     max-width max-content-width
-    height: 100vh
-    height: 100lvh
-    min-height: min-screen-height
     margin auto
 
+.fullscreen-frame
+    @extends .full-height
+    position relative
+    width 100%
+
+.sneaky-red-background
+    position relative
+    background-color: cd-theme-darkred
+    height 2px
+    width 100% 
+    transform scaleY(60)
+
+#intro-main-gap
+    position relative
+    background-color: cd-theme-darkred
+    // height 440px
+    height 20px
+    width 100% 
+    z-index: -1    
+
+/*==========================================================
+ Sub Components
+==========================================================*/
 @import 'hero-section/style.styl'
 @import 'intro-section/style.styl'
-@import 'cyberprotect-section/style.styl'
-@import 'dataprotect-section/style.styl'
-@import 'electronicsprotect-section/style.styl'
+@import 'main-section/style.styl'
+@import 'outro-section/style.styl'

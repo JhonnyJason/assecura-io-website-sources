@@ -31,7 +31,7 @@ header
     width home-button-size
     
 #navigation-bar
-    @extends .dropshadow
+    @extends .light-dropshadow
     position relative
     display grid
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr
@@ -39,9 +39,9 @@ header
     border solid 2px
     box-sizing: border-box
     border-radius 20px
-    background-color white
     transition background-color 0.7s
     a
+        // text-shadow: 1px 1px 2px #0003
         align-self: center
         width: 160px
         text-align: center
@@ -64,8 +64,10 @@ header.smaller
 header.inverted
     #header
         color #fff
+    
     #navigation-bar
-        background-color cd-theme-orange
+        a
+            text-shadow: 1px 1px 2px #0008
 
 header.no-navbar
     #navigation-bar
