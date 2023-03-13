@@ -5,27 +5,19 @@
     background-color: cd-theme-orange
 
     .content-frame
-        min-height: 100vh
-        min-height: 100lvh
         height auto
 
 #cyberprotect-text-block
     position relative
     z-index 1
     color white
-    padding 300px 80px 220px 80px
+    padding 200px 80px 120px 80px
+    min-height min-screen-height
 
     h1
         text-align: center
-        margin-bottom 100px
-    h2
-        @extends h1
-        margin-left: 540px
-        margin-bottom 20px
-        margin-top 40px
-    p
-        margin-left: 580px
-        line-height: 20px
+        margin-bottom 50px
+    
     button
         position absolute
         @extends .light-dropshadow
@@ -37,6 +29,57 @@
         width 300px
         bottom 80px
         right 80px
+
+#cyberprotect-firewalls-container
+    margin-left: 540px
+    
+    h2
+        font-size: 36px
+        margin-bottom 40px
+    p
+        margin-left: 40px
+        line-height: 22px
+        display none
+    button
+        position: relative
+        top auto
+        right auto
+        bottom auto
+        left auto
+        display inline-block
+        box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
+        height 36px
+        width 60px
+        background-color white
+        vertical-align: middle
+        cursor pointer
+
+    button:after
+        box-shadow inset 2px 2px 5px 0 #0002
+        content ""
+        height 36px
+        width 36px
+        border-radius: 50%
+        box-sizing: border-box
+        background-color cd-theme-orange
+        border solid 1px white
+        box-sizing: border-box
+        position absolute
+        top 0
+        left 0
+        z-index: 2
+        transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+
+    .active
+        h2
+            margin-bottom 20px
+        p
+            display block
+            margin-bottom 55px
+
+        button:after
+            background-color cd-button-green
+            transform translateX(24px)
 
 #cyberprotect-images-block
     position absolute
@@ -60,13 +103,13 @@
     width 260px
     height 360px
     left 80px
-    bottom 230px
+    top 320px
     z-index 0
 
 #cyberprotect-image2
     width 360px
     height 260px
     left 160px
-    bottom 90px
+    top 560px
     z-index 1
 

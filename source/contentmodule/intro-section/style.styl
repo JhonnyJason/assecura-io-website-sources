@@ -9,136 +9,17 @@ big-arrow-size = 720px
 ==========================================================*/
 #intro-section
     @extends .dropshadow
+    padding 80px 0
+    border-radius 80px
     background-color cd-theme-orange
     color white
-    padding 0 60px
-    border-radius 60px
     overflow: visible
     position relative
     z-index 1
 
-/*==========================================================
- Decoration Frame
-==========================================================*/
-#intro-decoration-frame
-    overflow visible
-    display none
-
-.no-arrows
-    #medium-arrow
-    #big-arrow
-        opacity 0
-        transform: translate(-50%, -100%)
-
-#medium-arrow
-#big-arrow
-    position absolute
-    left 50%
-    transform translateX(-50%)
-    transition all 0.3s
-
-#medium-arrow
-    top 0
-    height medium-arrow-size
-    width medium-arrow-size
-#big-arrow
-    bottom (-0.25 * big-arrow-size)
-    height: big-arrow-size
-    width: big-arrow-size
 
 /*==========================================================
- Intro Text Frame
+ Sub Sections
 ==========================================================*/
-#intro-smartbroker-frame
-    padding 80px
-    // border solid 2px black
-    box-sizing: border-box 
-    display grid
-    grid-template-columns: 1fr 1fr
-    grid-gap 160px
-    p
-        line-height: 125%
-    p:last-child
-        margin-bottom: 0
-
-#intro-text-left
-#intro-text-right
-    transition all 0.3s
-
-#intro-text-left.hidden
-#intro-text-right.hidden
-    opacity 0
-#intro-text-left.hidden
-    transform: translateY(50%)
-#intro-text-right.hidden
-    transform: translateY(100%)
-
-#intro-text-right
-    align-self: end
-
-#intro-text-left-content
-    p
-        margin-bottom 48px
-
-#intro-text-right-content
-    p
-        margin-bottom 16px
-        
-/*==========================================================
- Intro Final Frame
-==========================================================*/
-#intro-danger-frame
-    position relative
-
-#intro-final-text-block
-    position relative
-    z-index 1
-    padding 300px 80px 80px 80px
-    h1
-        margin-bottom 20px
-    h2
-        margin-bottom 16px
-
-#intro-final-images-block
-    position absolute
-    transform-style: preserve-3d
-    -webkit-perspective: 10px;
-    perspective: 10px
-    -webkit-perspective-origin-x: 50%;
-    perspective-origin-x: 50%;
-    -webkit-perspective-origin-y: 50%;
-    perspective-origin-y: 50%;
-    width 50%
-    height 100%
-    top 0
-    right 0
-    // border solid 2px black
-    // box-sizing: border-box
-    z-index: 0
-
-    img
-        @extends .light-dropshadow
-        position absolute
-        border-radius 60px
-        overflow: hidden
-        object-fit: cover
-        background-color white
-        width 260px
-        height 360px
-
-#intro-final-image1
-    left 80px
-    bottom 220px
-    z-index 0
-    transform: translateZ(-10px)
-
-#intro-final-image2
-    left 220px
-    bottom 40px
-    z-index 1
-    transform: translateZ(-5px)
-#intro-final-image3
-    left 380px
-    bottom 220px
-    z-index 2
-    transform: translateZ(-0px)
+@import 'danger-section/style.styl'
+@import 'smartbroker-section/style.styl'

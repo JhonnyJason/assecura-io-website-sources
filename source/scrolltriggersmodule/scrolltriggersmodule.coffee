@@ -6,6 +6,7 @@ import { createLogFunctions } from "thingy-debug"
 
 ############################################################
 import * as headerModule from "./headermodule.js"
+import * as contentModule from "./contentmodule.js"
 
 ############################################################
 smallHeaderBorder = 50
@@ -20,6 +21,7 @@ negativeHysteresisDistance = -50
 export initialize = ->
     log "initialize"
     document.addEventListener("scroll", scrolled)
+    scrolled()
     return
 
 #### Scroll Triggers
@@ -27,47 +29,46 @@ export initialize = ->
 # if scroll > introsection and < footer then invert colors (orange background...)  
 # if scroll has down-momentum then hide header
 # if scroll has up-momentum then show header
+# if scroll > window.innerHeight then switch off heroGrid animation
 
-
+############################################################
 scrolled = (evnt) ->
-    offset = window.scrollY
-    if offset < smallHeaderBorder then return headerModule.setNormal()
+    if window.scrollY < smallHeaderBorder then return headerModule.setNormal()
     
     invertedBeginBorder = window.innerHeight - header.offsetHeight * 0.5
     invertedEndBorder = document.body.offsetHeight - footer.offsetHeight - 80 - 0.5 * header.offsetHeight
     
-    # if offset > invertedBeginBorder and offset < invertedEndBorder  then headerModule.invertColors()
+    # if window.scrollY > invertedBeginBorder and window.scrollY < invertedEndBorder  then headerModule.invertColors()
     # else headerModule.setNormalColors()
     
-    if offset > invertedBeginBorder then headerModule.invertColors()
+    if window.scrollY > invertedBeginBorder then headerModule.invertColors()
     else headerModule.setNormalColors()
 
-    if offset > invertedEndBorder
+    if window.scrollY > invertedEndBorder
         pivotOffset = invertedEndBorder
         scrollingDown = true
         headerModule.setGone()
         return
 
-    figureDirection(offset)
+    figureDirection()
     if scrollingDown then headerModule.setGone()
     else headerModule.setSmaller()
 
     return
 
-figureDirection = (offset) ->
-    distance = offset - pivotOffset
+############################################################
+figureDirection = ->
+    distance = window.scrollY - pivotOffset
     
     if distance > hysteresisDistance and !scrollingDown
         scrollingDown = true
     
     if distance > 0 and scrollingDown
-        pivotOffset = offset
+        pivotOffset = window.scrollY
     
     if distance < negativeHysteresisDistance and scrollingDown
         scrollingDown = false
     
     if distance < 0 and !scrollingDown
-        pivotOffset = offset
+        pivotOffset = window.scrollY
     return    
-
-

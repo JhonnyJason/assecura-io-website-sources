@@ -1,72 +1,61 @@
-#hero-section
+/*==========================================================
+ Danger Section
+==========================================================*/
+#danger-section
+    padding-top 200px
+    // padding-bottom 80px
+    .content-frame
+        position relative
+        height auto
+
+#danger-text-block
     position relative
-#hero-grid
-    position absolute
-    top  50%
-    left 50%
-    transform: translate(-50%, -50%)
-    width: inner-content-width
-    // display grid
-    // grid-template-columns: 1fr 1fr
-    display flex
-    justify-content: space-between
-
-#hero-right
-#hero-left
-    width: 420px
-    align-self: center
-
-
-#hero-title
-    font-size: 20px
-    line-height 40px
+    z-index 1
+    padding 300px 80px 80px 80px
+    h1
+        margin-bottom 20px
+    h2
+        margin-bottom 16px
+        max-width 650px
+    span
     b
-        font-size 32px
-        color cd-theme-orange
-        text-transform: uppercase
-        white-space: nowrap
-        vertical-align: middle
-    
-#hero-logo
-    height 320px
-    width 320px
-    color cd-theme-orange
-    display block
-    margin auto
+        color cd-flash
 
-#hero-text
-    // font-family: "NotoSans Light"
-    margin-top 36px
-    line-height 130%
-
-
-#contact-button
-    @extends .light-dropshadow
-    background-color cd-flash
-    color white
-    border-radius: 20px
-    height 40px
-    font-size 16px
-    margin-top 30px
-    width: 300px
-    cursor pointer
-
-
-#hero-bottom-decoration
-    height 60px
-    width 100%
-    background-color cd-theme-orange
+#danger-images-block
     position absolute
-    bottom 0
-    overflow: hidden
+    transform-style: preserve-3d
+    -webkit-perspective: 10px;
+    perspective: 10px
+    -webkit-perspective-origin-x: 50%;
+    perspective-origin-x: 50%;
+    -webkit-perspective-origin-y: 50%;
+    perspective-origin-y: 50%;
+    width 50%
+    height 100%
+    top 0
+    right 0
+    // border solid 2px black
+    // box-sizing: border-box
+    z-index: 0
 
-    #white-triangle
-        position: absolute
-        width 80px
-        height 80px
-        color white
-        top 0
-        left 50%
-        transform translateX(-50%)
+    img
+        @extends .light-dropshadow
+        position absolute
+        border-radius 60px
+        overflow: hidden
+        object-fit: cover
+        background-color white
+        width 260px
+        height 360px
 
-        
+#danger-image1
+    left 80px
+    bottom 220px
+
+#danger-image2
+    left 220px
+    bottom 40px
+
+#danger-image3
+    left 380px
+    bottom 220px
