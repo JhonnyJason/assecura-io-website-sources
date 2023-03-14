@@ -40,19 +40,41 @@ header
     box-sizing: border-box
     border-radius 20px
     transition background-color 0.7s
+    overflow: hidden
     a
         // text-shadow: 1px 1px 2px #0003
         align-self: center
         width: 160px
         text-align: center
+        transition: color 0.3s cubic-bezier(0,0.8,0.8,1) 
 
 #selected-chapter-background
     position absolute
+    top -2px 
+    left 0
     opacity 0
     z-index: -1
     width 160px
     border-radius: 20px
     height 40px
+    transition:  all 0.3s cubic-bezier(0,0.8,0.8,1)
+    background-color: white
+
+.on-cyberprotect
+    #selected-chapter-background
+        opacity: 1
+        transform: translateX(0)
+
+.on-dataprotect
+    #selected-chapter-background
+        opacity: 1
+        transform: translateX(160px)
+
+.on-electronicsprotect
+    #selected-chapter-background
+        opacity: 1
+        transform: translateX(320px)
+
 
 
 header.gone
@@ -68,6 +90,20 @@ header.inverted
     #navigation-bar
         a
             text-shadow: 1px 1px 2px #0008
+
+header
+    .on-cyberprotect
+        #nav-cyberprotect
+            color cd-theme-darkred
+            text-shadow: none !important
+    .on-dataprotect
+        #nav-dataprotect
+            color cd-theme-darkred
+            text-shadow: none !important
+    .on-electronicsprotect
+        #nav-electronicsprotect
+            color cd-theme-darkred
+            text-shadow: none !important
 
 header.no-navbar
     #navigation-bar

@@ -9,13 +9,21 @@ import * as anim from "./smoothanimationmodule.js"
 
 ############################################################
 #region DOM-Cache
+navigationBar = document.getElementById("navigation-bar")
+
 heroSection = document.getElementById("hero-section")
 heroGrid = document.getElementById("hero-grid")
 firewallsContainer = document.getElementById("cyberprotect-firewalls-container
 ")
+outroCalltoactionFrame = document.getElementById("outro-calltoaction-frame")
+electronicsprotectImagesBlock = document.getElementById("electronicsprotect-images-block")
+dataprotectDecoration = document.getElementById("dataprotect-decoration")
+cyberprotectImagesBlock = document.getElementById("cyberprotect-images-block")
+dangerImagesBlock = document.getElementById("danger-images-block")
 
 smartbrokerSection = document.getElementById("smartbroker-section")
 dangerSection = document.getElementById("danger-section")
+cyberprotectSection = document.getElementById("cyberprotect-section")
 dataprotectSection = document.getElementById("dataprotect-section")
 electronicsprotectSection = document.getElementById("electronicsprotect-section")
 outroSection = document.getElementById("outro-section")
@@ -28,6 +36,9 @@ intersectionObserver = null
 ############################################################
 targetToLeaveFunction = new Map()
 targetToEnterFunction = new Map()
+
+############################################################
+navbarClasses = new Set()
 
 ############################################################
 export initialize = ->
@@ -55,6 +66,17 @@ onIntersectTrigger = (entries) ->
         if entry.isIntersecting
             targetToEnterFunction.get(entry.target)()
         else targetToLeaveFunction.get(entry.target)()
+    return
+
+############################################################
+applyNavbarClasses = ->
+    log "applyNavbarClasses"
+    log navbarClasses.size
+    if navbarClasses.size == 0
+        navigationBar.className = ""
+    if navbarClasses.size == 1
+        values = [...navbarClasses]
+        navigationBar.className = values[0]
     return
 
 ############################################################
@@ -112,16 +134,15 @@ heroGridAnimation = ->
 
 smartbrokerStart = 0.0
 smartbrokerHeight = 0.0
-deltaMax = 50.0
 smartbrokerCards = []
 ############################################################
 initializeSmartbrokerSection = ->
     log "initializeSmartbrokerSection"
-    targetToEnterFunction.set(smartbrokerSection, smartbrokerSectionEnteredScreen)
-    targetToLeaveFunction.set(smartbrokerSection, smartbrokerSectionLeftScreen)
-    intersectionObserver.observe(smartbrokerSection)
+    # targetToEnterFunction.set(smartbrokerSection, smartbrokerSectionEnteredScreen)
+    # targetToLeaveFunction.set(smartbrokerSection, smartbrokerSectionLeftScreen)
+    # intersectionObserver.observe(smartbrokerSection)
 
-    smartbrokerCards = [...smartbrokerSection.getElementsByClassName("smartbroker-card")]
+    smartbrokerCards = smartbrokerSection.getElementsByClassName("smartbroker-card")
     return
 
 ############################################################
@@ -139,12 +160,13 @@ smartbrokerSectionLeftScreen = ->
 
 ############################################################
 smartbrokerAnimation = ->
-    log "smartbrokerAnimation"
     progress = 1.0 * (window.scrollY - smartbrokerStart) / smartbrokerHeight
     if progress > 1.0 or progress < 0.0 then return
     if progress > 0.5 then return
-    delta0 = Math.round(deltaMax * Math.sin(progress * 2 * Math.PI + 2.5 * Math.PI)) 
-    delta2 = Math.round(deltaMax * Math.sin(progress * 2 * Math.PI + 1.5 * Math.PI)) 
+    max = 50.0
+
+    delta0 = Math.round(max * Math.sin(progress * 2 * Math.PI + 2.5 * Math.PI)) 
+    delta2 = Math.round(max * Math.sin(progress * 2 * Math.PI + 1.5 * Math.PI)) 
     smartbrokerCards[0].style.transform = "translateY(#{delta0}px)"
     smartbrokerCards[2].style.transform = "translateY(#{delta2}px)"
 
@@ -154,24 +176,82 @@ smartbrokerAnimation = ->
 
 ############################################################
 #region danger section
+
+dangerStart = 0.0
+dangerHeight = 0.0
+dangerElements = []
+
+############################################################
 initializeDangerSection = ->
     log "initializeDangerSection"
+    targetToEnterFunction.set(dangerSection, dangerSectionEnteredScreen)
+    targetToLeaveFunction.set(dangerSection, dangerSectionLeftScreen)
+    intersectionObserver.observe(dangerSection)
+    
+    dangerElements = dangerImagesBlock.getElementsByTagName("img")
+    return
+
+
+############################################################
+dangerSectionEnteredScreen = ->
+    log "dangerSectionEnteredScreen"
+    dangerStart = dangerSection.getBoundingClientRect().top + window.scrollY
+    dangerHeight = 1.0 * dangerSection.offsetHeight
+    anim.addAnimationTask(dangerAnimation)
+    return
+
+dangerSectionLeftScreen = ->
+    log "dangerSectionLeftScreen"
+    anim.addAnimationTask(dangerAnimation)
+    return
+
+
+############################################################
+dangerAnimation = ->
+    progress = 1.0 * (window.scrollY - dangerStart) / dangerHeight
+    
+    progress = progress - 0.3
+    max = 30.0
+
+    mult0 = -4.0
+    mult1 = -2.0
+    mult2 = 1.0
+
+    delta0 = mult0 * max * progress
+    delta1 = mult1 * max * progress
+    delta2 = mult2 * max * progress
+
+    dangerElements[0].style.transform = "translateY(#{delta0}px)"
+    dangerElements[1].style.transform = "translateY(#{delta1}px)"
+    dangerElements[2].style.transform = "translateY(#{delta2}px)"
+    
     return
 
 #endregion
 
 ############################################################
 #region cyberprotect section
+
+cyberprotectStart = 0.0
+cyberprotectHeight = 0.0
+cyberprotectElements = []
+
+############################################################
 initializeCyberprotectSection = ->
     log "initializeCyberprotectSection"
+    targetToEnterFunction.set(cyberprotectSection, cyberprotectSectionEnteredScreen)
+    targetToLeaveFunction.set(cyberprotectSection, cyberprotectSectionLeftScreen)
+    intersectionObserver.observe(cyberprotectSection)
 
     ## cyberprotect activation buttons
-    buttons = [...firewallsContainer.getElementsByTagName("button")]
+    buttons = firewallsContainer.getElementsByTagName("button")
+    # buttons = [...firewallsContainer.getElementsByTagName("button")]
     for button in buttons
         heading = button.parentElement
         activatableContainer = heading.parentElement
         connectActivation(button, activatableContainer)
 
+    cyberprotectElements = cyberprotectImagesBlock.getElementsByTagName("img")
     return
 
 ############################################################
@@ -180,28 +260,204 @@ connectActivation = (button, container) ->
     button.addEventListener("click", switchFunction)
     return
 
+############################################################
+cyberprotectSectionEnteredScreen = ->
+    log "cyberprotectSectionEnteredScreen"
+    cyberprotectStart = cyberprotectSection.getBoundingClientRect().top + window.scrollY
+    cyberprotectHeight = 1.0 * cyberprotectSection.offsetHeight
+    
+    navbarClasses.add("on-cyberprotect")
+    applyNavbarClasses()
+    
+    anim.addAnimationTask(cyberprotectAnimation)
+    return
+
+cyberprotectSectionLeftScreen = ->
+    log "cyberprotectSectionLeftScreen"
+    navbarClasses.delete("on-cyberprotect")
+    applyNavbarClasses()
+
+    anim.addAnimationTask(cyberprotectAnimation)
+    return
+
+
+############################################################
+cyberprotectAnimation = ->
+    progress = 1.0 * (window.scrollY - cyberprotectStart) / cyberprotectHeight
+    
+    progress = progress - 0.3
+    max = 40.0
+
+    mult0 = 1.0
+    mult1 = 3.0
+
+    delta0 = mult0 * max * progress
+    delta1 = mult1 * max * progress
+
+    cyberprotectElements[0].style.transform = "translateY(#{delta0}px)"
+    cyberprotectElements[1].style.transform = "translateY(#{delta1}px)"
+    
 #endregion
 
 ############################################################
 #region dataprotect section
+
+dataprotectStart = 0.0
+dataprotectHeight = 0.0
+dataprotectElements = []
+
+############################################################
 initializeDataprotectSection = ->
     log "initializeDataprotectSection"
+    targetToEnterFunction.set(dataprotectSection, dataprotectSectionEnteredScreen)
+    targetToLeaveFunction.set(dataprotectSection, dataprotectSectionLeftScreen)
+    intersectionObserver.observe(dataprotectSection)
+
+    dataprotectElements = [...dataprotectDecoration.children]
     return
 
+############################################################
+dataprotectSectionEnteredScreen = ->
+    log "dataprotectSectionEnteredScreen"
+    dataprotectStart = dataprotectSection.getBoundingClientRect().top + window.scrollY
+    dataprotectHeight = 1.0 * dataprotectSection.offsetHeight
+
+    navbarClasses.add("on-dataprotect")
+    applyNavbarClasses()
+
+    anim.addAnimationTask(dataprotectAnimation)
+    return
+
+dataprotectSectionLeftScreen = ->
+    log "dataprotectSectionLeftScreen"
+    navbarClasses.delete("on-dataprotect")
+    applyNavbarClasses()
+
+    anim.removeAnimationTask(dataprotectAnimation)
+    return
+
+############################################################
+dataprotectAnimation = ->
+    progress = 1.0 * (window.scrollY - dataprotectStart) / dataprotectHeight
+    
+    progress = progress - 0.3
+    max = 40.0
+
+    mult0 = 1.0
+    mult1 = 2.0
+    mult2 = 3.0
+
+    delta0 = mult0 * max * progress
+    delta1 = mult1 * max * progress
+    delta2 = mult2 * max * progress
+
+    dataprotectElements[0].style.transform = "translateY(#{delta0}px)"
+    dataprotectElements[1].style.transform = "translateY(#{delta1}px)"
+    dataprotectElements[2].style.transform = "translateY(#{delta2}px)"
+
+    return
+    
 #endregion
 
 ############################################################
-#region smartbroker section
+#region electonicsprotect section
+
+electronicsprotectStart = 0.0
+electronicsprotectHeight = 0.0
+electronicsprotectImages = []
+
+############################################################
 initializeElectronicsprotectSection = ->
     log "initializeElectronicsprotectSection"
+    targetToEnterFunction.set(electronicsprotectSection, electronicsprotectSectionEnteredScreen)
+    targetToLeaveFunction.set(electronicsprotectSection, electronicsprotectSectionLeftScreen)
+    intersectionObserver.observe(electronicsprotectSection)
+
+    electronicsprotectImages = electronicsprotectImagesBlock.getElementsByTagName("img")
+    return
+
+############################################################
+electronicsprotectSectionEnteredScreen = ->
+    log "electronicsprotectSectionEnteredScreen"
+    electronicsprotectStart = electronicsprotectSection.getBoundingClientRect().top + window.scrollY
+    electronicsprotectHeight = 1.0 * electronicsprotectSection.offsetHeight
+
+    navbarClasses.add("on-electronicsprotect")
+    applyNavbarClasses()
+
+    anim.addAnimationTask(electronicsprotectAnimation)
+    return
+
+electronicsprotectSectionLeftScreen = ->
+    log "electronicsprotectSectionLeftScreen"
+    navbarClasses.delete("on-electronicsprotect")
+    applyNavbarClasses()
+
+    anim.removeAnimationTask(electronicsprotectAnimation)
+    return
+
+############################################################
+electronicsprotectAnimation = ->
+    progress = 1.0 * (window.scrollY - electronicsprotectStart) / electronicsprotectHeight
+
+    progress = progress - 0.3
+    max = 50.0
+
+    # progress = (progress - 0.25) * 2.0
+
+    deltaP = Math.round(max * Math.sin(progress * Math.PI)) 
+    deltaN = -1 * deltaP
+
+    electronicsprotectImages[0].style.transform = "translateY(#{deltaP}px)"
+    electronicsprotectImages[1].style.transform = "translateY(#{deltaN}px)"
+    electronicsprotectImages[2].style.transform = "translateY(#{deltaP}px)"
+    electronicsprotectImages[3].style.transform = "translateY(#{deltaN}px)"
+
     return
 
 #endregion
 
 ############################################################
 #region outro section
+
+outroStart = 0.0
+outroHeight = 0.0
+
+############################################################
 initializeOutroSection = ->
     log "initializeOutroSection"
+    targetToEnterFunction.set(outroSection, outroSectionEnteredScreen)
+    targetToLeaveFunction.set(outroSection, outroSectionLeftScreen)
+    intersectionObserver.observe(outroSection)
+
+    return
+
+
+############################################################
+outroSectionEnteredScreen = ->
+    log "outroSectionEnteredScreen"
+    outroStart = outroSection.getBoundingClientRect().top + window.scrollY
+    outroHeight = 1.0 * outroSection.offsetHeight
+    anim.addAnimationTask(outroAnimation)
+    return
+
+outroSectionLeftScreen = ->
+    log "outroSectionLeftScreen"
+    anim.removeAnimationTask(outroAnimation)
+    outroCalltoactionFrame.style.removeProperty("transform")
+    return
+
+############################################################
+outroAnimation = ->
+    progress = 1.0 * (window.scrollY - outroStart) / outroHeight
+    if progress > 1.0 or progress < 0.0 
+        outroCalltoactionFrame.style.removeProperty("transform")
+        return
+
+    if progress > 0.0 and progress < 0.8
+        outroCalltoactionFrame.style.transform = "translateX(0)"
+    else 
+        outroCalltoactionFrame.style.removeProperty("transform")
     return
 
 #endregion
