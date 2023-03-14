@@ -31,6 +31,11 @@ getAnchorName = (ref) ->
 addScrollEffect = (link, anchorname) ->
     # log "addScrollEffect"
     # olog { link,anchorname }
+    if anchorname = "top"
+        scrollFunction = -> v.scrollTo(0)
+        link.addEventListener("click", scrollFunction)
+        return
+
     el = document.getElementById(anchorname)
     return unless el?
     targetOffset = el.getBoundingClientRect().top + window.scrollY + 120
