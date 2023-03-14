@@ -31,7 +31,7 @@ getAnchorName = (ref) ->
 addScrollEffect = (link, anchorname) ->
     # log "addScrollEffect"
     # olog { link,anchorname }
-    if anchorname = "top"
+    if anchorname == "top"
         scrollFunction = -> v.scrollTo(0)
         link.addEventListener("click", scrollFunction)
         return
