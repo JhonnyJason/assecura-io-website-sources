@@ -50,13 +50,13 @@ export initialize = ->
 
     intersectionObserver = new IntersectionObserver(onIntersectTrigger, intersectionOptions)
     
-    initializeHeroSection()
-    initializeSmartbrokerSection()
-    initializeDangerSection()
-    initializeCyberprotectSection()
-    initializeDataprotectSection()
-    initializeElectronicsprotectSection()
-    initializeOutroSection()
+    if heroSection? then initializeHeroSection()
+    if smartBrokerSection?  then initializeSmartbrokerSection()
+    if dangerSection? then initializeDangerSection()
+    if cyberprotectSection? then initializeCyberprotectSection()
+    if dataprotectSection? then initializeDataprotectSection()
+    if electronicsprotectSection? then initializeElectronicsprotectSection()
+    if outroSection? then initializeOutroSection()
     return
 
 ############################################################

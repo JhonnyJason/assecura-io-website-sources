@@ -1,0 +1,69 @@
+/*==========================================================
+ Outro Section
+==========================================================*/
+#outro-section
+    background-color cd-theme-darkred
+    img
+        display block
+        object-fit: contain
+        height 100%
+        width 50%
+        box-sizing: border-box
+        margin-right auto
+        padding 80px
+    
+    .decoration-gap
+        height 100lvh
+        width 100%
+
+#decoration-application 
+#decoration-protection 
+#decoration-assecura
+    height 100lvh
+    width 100%
+    padding-top 25%
+    padding-bottom 25%
+
+
+#decoration-assecura
+    padding 80px 0
+    box-sizing: border-box
+    svg
+        width 50%
+        height 400px
+        color cd-theme-orange
+
+
+#outro-calltoaction-frame
+    @extends .full-height
+    width 50%
+    background-color cd-card-background
+    color cd-theme-darkred
+    position fixed
+    top 0
+    right 0
+    transform translateX(102%)
+    transition: transform 0.3s
+    z-index 80
+
+#outro-calltoaction-content
+    position: absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    width 100%
+    text-align: center
+
+    button        
+        box-shadow 2px 2px 7px 0 #0004, inset 2px 2px 7px 0 #0004         
+        border-radius: 20px
+        border solid 2px
+        color cd-theme-darkred
+        background-color transparent
+        height 40px
+        width 300px
+        font-size: 16px
+        margin-top 110px
+
+#outro-calltoaction-frame.here
+    transform translateX(0)

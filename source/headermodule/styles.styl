@@ -19,7 +19,7 @@ header
 #header
     display: grid
     grid-template-columns: home-button-size auto
-    padding 80px 80px 0 80px
+    padding 60px 80px 0 80px
     align-items: center
     justify-content: space-between
     color cd-theme-orange
@@ -33,8 +33,7 @@ header
 #navigation-bar
     box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
     position relative
-    display grid
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+    display flex
     height 40px
     border solid 2px
     box-sizing: border-box
@@ -44,38 +43,15 @@ header
     a
         // text-shadow: 1px 1px 2px #0003
         align-self: center
-        width: 160px
+        width: 150px
         text-align: center
         transition: color 0.3s cubic-bezier(0,0.8,0.8,1) 
 
-#selected-chapter-background
-    position absolute
-    top -2px 
-    left 0
-    opacity 0
-    z-index: -1
-    width 160px
-    border-radius: 20px
-    height 40px
-    transition:  all 0.3s cubic-bezier(0,0.8,0.8,1)
-    background-color: white
+    #nav-contact
+        width 100px
 
-.on-cyberprotect
-    #selected-chapter-background
-        opacity: 1
-        transform: translateX(0)
-
-.on-dataprotect
-    #selected-chapter-background
-        opacity: 1
-        transform: translateX(160px)
-
-.on-electronicsprotect
-    #selected-chapter-background
-        opacity: 1
-        transform: translateX(320px)
-
-
+    #nav-about
+        width 100px
 
 header.gone
     transform translate(-50%, -102%)
