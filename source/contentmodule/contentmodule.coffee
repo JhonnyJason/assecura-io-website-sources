@@ -217,6 +217,11 @@ dangerAnimation = ->
     mult1 = -2.0
     mult2 = 1.0
 
+    # experiment 1
+    # mult0 = -1.6
+    # mult1 = 3.2
+    # mult2 = 1.6
+
     delta0 = mult0 * max * progress
     delta1 = mult1 * max * progress
     delta2 = mult2 * max * progress
@@ -224,7 +229,12 @@ dangerAnimation = ->
     dangerElements[0].style.transform = "translateY(#{delta0}px)"
     dangerElements[1].style.transform = "translateY(#{delta1}px)"
     dangerElements[2].style.transform = "translateY(#{delta2}px)"
-    
+
+    # experiment 1
+    # dangerElements[0].style.transform = "translateX(#{delta0}px)"
+    # dangerElements[1].style.transform = "translateY(#{delta1}px)"
+    # dangerElements[2].style.transform = "translateX(#{delta2}px)"
+
     return
 
 #endregion

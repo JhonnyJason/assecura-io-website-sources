@@ -19,7 +19,9 @@ export setGone = ->
     return
 
 export setNormal = ->
-    headerTagElement.removeAttribute("class")
+    # headerTagElement.removeAttribute("class")
+    headerTagElement.classList.remove("smaller")
+    headerTagElement.classList.remove("gone")
     return
 
 export invertColors = ->

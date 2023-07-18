@@ -7,6 +7,7 @@ indexdomconnect.initialize = () ->
     global.contactusCalltoactionFrame = document.getElementById("contactus-calltoaction-frame")
     global.smartbrokerSection = document.getElementById("smartbroker-section")
     global.dangerSection = document.getElementById("danger-section")
+    global.cyberprotectButton = document.getElementById("cyberprotect-button")
     global.dangerImagesBlock = document.getElementById("danger-images-block")
     global.heroGrid = document.getElementById("hero-grid")
     global.header = document.getElementById("header")

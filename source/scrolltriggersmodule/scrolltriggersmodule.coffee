@@ -17,9 +17,14 @@ pivotOffset = 0
 hysteresisDistance = 30
 negativeHysteresisDistance = -50
 
+alwaysInvert = false
+
 ############################################################
 export initialize = ->
     log "initialize"
+    if cyberProtectFlag? then alwaysInvert = true
+    if deepDiveFlag? then alwaysInvert = true
+    
     document.addEventListener("scroll", scrolled)
     scrolled()
     return
@@ -41,7 +46,7 @@ scrolled = (evnt) ->
     # if window.scrollY > invertedBeginBorder and window.scrollY < invertedEndBorder  then headerModule.invertColors()
     # else headerModule.setNormalColors()
     
-    if window.scrollY > invertedBeginBorder then headerModule.invertColors()
+    if window.scrollY > invertedBeginBorder or alwaysInvert then headerModule.invertColors()
     else headerModule.setNormalColors()
 
     if window.scrollY > invertedEndBorder

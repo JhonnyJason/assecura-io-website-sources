@@ -1,0 +1,109 @@
+/*==========================================================
+ General Content Styles
+==========================================================*/
+
+
+.content-frame
+
+/*==========================================================
+ Specific Content Styles
+==========================================================*/
+#cyberprotect-frame
+
+    position: relative
+    // padding-top 300px
+    padding-top 42vh
+    padding-bottom 300px
+    min-height 100vh
+    min-height 100lvh
+    height auto
+    box-sizing: border-box
+    background-color: cd-theme-orange
+    
+    p
+        font-size: 22px
+        font-family: NotoSans Regular
+        line-height: 135%
+        margin-bottom 20px
+ 
+    h1
+        color white
+        font-size: 56px
+        font-family: NotoSans Regular
+        margin-left 50%
+        margin-bottom 80px
+        width 720px
+        transform translateX(-50%)
+        transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+
+    .info-card
+        @extends .light-dropshadow
+        padding 80px
+        margin auto
+        background-color cd-card-background
+        max-width: 1200px
+        display: none
+
+    .link-wrapper
+        padding 80px 40px 40px 40px
+        margin auto
+        max-width: 1200px
+        display: none
+        
+    a
+        @extends .light-dropshadow
+        display block
+        margin-left auto
+        background-color white
+        color cd-theme-orange
+        width 300px
+        height 40px
+        border-radius: 20px
+        font-family: NotoSans Regular
+        line-height 40px
+        text-align: center
+
+    button
+        position: relative
+        top auto
+        right auto
+        bottom 5px
+        left auto
+        display inline-block
+        border-radius: 23px
+        box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
+        height 46px
+        width 80px
+        margin-left 30px
+        background-color white
+        vertical-align: middle
+        cursor pointer
+
+    button:after
+        box-shadow inset 2px 2px 5px 0 #0002
+        content ""
+        height 46px
+        width 46px
+        border-radius: 50%
+        box-sizing: border-box
+        // background-color cd-card-background
+        background-color #FF5935
+        border solid 1px white
+        box-sizing: border-box
+        position absolute
+        top 0
+        left 0
+        z-index: 2
+        transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+
+    .active
+        // h1
+        //     margin-bottom 60px
+        //     // transform: scale(0.7) translateX(-100%)
+        .link-wrapper
+        .info-card
+            display block
+
+        button:after
+            background-color cd-button-green
+            transform translateX(34px)
