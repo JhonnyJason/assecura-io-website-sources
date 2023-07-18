@@ -15,7 +15,7 @@ heroSection = document.getElementById("hero-section")
 heroGrid = document.getElementById("hero-grid")
 firewallsContainer = document.getElementById("cyberprotect-firewalls-container
 ")
-outroCalltoactionFrame = document.getElementById("outro-calltoaction-frame")
+contactusCalltoactionFrame = document.getElementById("contactus-calltoaction-frame")
 electronicsprotectImagesBlock = document.getElementById("electronicsprotect-images-block")
 dataprotectDecoration = document.getElementById("dataprotect-decoration")
 cyberprotectImagesBlock = document.getElementById("cyberprotect-images-block")
@@ -26,7 +26,7 @@ dangerSection = document.getElementById("danger-section")
 cyberprotectSection = document.getElementById("cyberprotect-section")
 dataprotectSection = document.getElementById("dataprotect-section")
 electronicsprotectSection = document.getElementById("electronicsprotect-section")
-outroSection = document.getElementById("outro-section")
+contactusSection = document.getElementById("contactus-section")
 
 #endregion
 
@@ -56,7 +56,7 @@ export initialize = ->
     if cyberprotectSection? then initializeCyberprotectSection()
     if dataprotectSection? then initializeDataprotectSection()
     if electronicsprotectSection? then initializeElectronicsprotectSection()
-    if outroSection? then initializeOutroSection()
+    if contactusSection? then initializeContactusSection()
     return
 
 ############################################################
@@ -420,44 +420,44 @@ electronicsprotectAnimation = ->
 ############################################################
 #region outro section
 
-outroStart = 0.0
-outroHeight = 0.0
+contactusStart = 0.0
+contactusHeight = 0.0
 
 ############################################################
-initializeOutroSection = ->
-    log "initializeOutroSection"
-    targetToEnterFunction.set(outroSection, outroSectionEnteredScreen)
-    targetToLeaveFunction.set(outroSection, outroSectionLeftScreen)
-    intersectionObserver.observe(outroSection)
+initializeContactusSection = ->
+    log "initializeContactusSection"
+    targetToEnterFunction.set(contactusSection, contactusSectionEnteredScreen)
+    targetToLeaveFunction.set(contactusSection, contactusSectionLeftScreen)
+    intersectionObserver.observe(contactusSection)
 
     return
 
 
 ############################################################
-outroSectionEnteredScreen = ->
-    log "outroSectionEnteredScreen"
-    outroStart = outroSection.getBoundingClientRect().top + window.scrollY
-    outroHeight = 1.0 * outroSection.offsetHeight
-    anim.addAnimationTask(outroAnimation)
+contactusSectionEnteredScreen = ->
+    log "contactusSectionEnteredScreen"
+    contactusStart = contactusSection.getBoundingClientRect().top + window.scrollY
+    contactusHeight = 1.0 * contactusSection.offsetHeight
+    anim.addAnimationTask(contactusAnimation)
     return
 
-outroSectionLeftScreen = ->
-    log "outroSectionLeftScreen"
-    anim.removeAnimationTask(outroAnimation)
-    outroCalltoactionFrame.style.removeProperty("transform")
+contactusSectionLeftScreen = ->
+    log "contactusSectionLeftScreen"
+    anim.removeAnimationTask(contactusAnimation)
+    contactusCalltoactionFrame.style.removeProperty("transform")
     return
 
 ############################################################
-outroAnimation = ->
-    progress = 1.0 * (window.scrollY - outroStart) / outroHeight
+contactusAnimation = ->
+    progress = 1.0 * (window.scrollY - contactusStart) / contactusHeight
     if progress > 1.0 or progress < 0.0 
-        outroCalltoactionFrame.style.removeProperty("transform")
+        contactusCalltoactionFrame.style.removeProperty("transform")
         return
 
     if progress > 0.0 and progress < 0.8
-        outroCalltoactionFrame.style.transform = "translateX(0)"
+        contactusCalltoactionFrame.style.transform = "translateX(0)"
     else 
-        outroCalltoactionFrame.style.removeProperty("transform")
+        contactusCalltoactionFrame.style.removeProperty("transform")
     return
 
 #endregion

@@ -1,8 +1,8 @@
 /*==========================================================
  Outro Section
 ==========================================================*/
-#outro-section
-    background-color cd-theme-darkred
+#contactus-section
+    background-color cd-theme-orange
     img
         display block
         object-fit: contain
@@ -15,6 +15,10 @@
     .decoration-gap
         height 100lvh
         width 100%
+
+    .content-frame
+        position relative
+        height 100%
 
 #decoration-application 
 #decoration-protection 
@@ -34,11 +38,10 @@
         color cd-theme-orange
 
 
-#outro-calltoaction-frame
+#contactus-calltoaction-frame
     @extends .full-height
     width 50%
-    background-color cd-card-background
-    color cd-theme-darkred
+    color black
     position fixed
     top 0
     right 0
@@ -46,7 +49,7 @@
     transition: transform 0.3s
     z-index 80
 
-#outro-calltoaction-content
+#contactus-calltoaction-content
     position: absolute
     top 50%
     left 50%
@@ -54,16 +57,21 @@
     width 100%
     text-align: center
 
-    button        
+    a        
         box-shadow 2px 2px 7px 0 #0004, inset 2px 2px 7px 0 #0004         
         border-radius: 20px
         border solid 2px
-        color cd-theme-darkred
+        box-sizing: border-box
+        color white
         background-color transparent
         height 40px
+        cursor pointer
+        line-height: 36px
+        text-align: center
+        font-family: NotoSans Regular
         width 300px
         font-size: 16px
-        margin-top 110px
+        margin-top 80px
 
-#outro-calltoaction-frame.here
+#contactus-calltoaction-frame.here
     transform translateX(0)
