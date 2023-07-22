@@ -4,6 +4,9 @@
 
 
 .content-frame
+    width 100%
+    max-width: max-content-width
+    margin: auto
 
 /*==========================================================
  Specific Content Styles
@@ -23,27 +26,39 @@
     p
         // font-size: 22px
         // font-family: NotoSans Regular
-        font-size: 16pt
+        font-size: 16px
         line-height: 135%
-        margin-bottom 20px
+        margin-bottom 30px
  
     h1
         color white
-        font-size: 56px
+        font-size: 48px
         font-family: NotoSans Regular
-        margin-left 50%
-        margin-bottom 80px
+        // margin-left 50%
+        // transform translateX(-50%)
+        margin-left 160px
+        margin-bottom 60px
         width 720px
-        transform translateX(-50%)
         transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
 
     .info-card
         @extends .light-dropshadow
-        padding 80px
-        margin auto
-        background-color cd-card-background
-        max-width: 1200px
+        padding 60px 150px 30px 20px
+        margin-left 160px
+        // background-color cd-card-background
+        background-color cd-theme-orange
+        max-width: 900px
+        box-sizing: border-box
         display: none
+        position relative
+    
+    #decoration-arrow
+        height 100px
+        width 100px
+        background-image url("/img/arrow.svg")
+        position absolute
+        top 20px
+        right 20px
 
     .link-wrapper
         padding 80px 40px 40px 40px
@@ -68,7 +83,7 @@
         position: relative
         top auto
         right auto
-        bottom 5px
+        bottom 2px
         left auto
         display inline-block
         border-radius: 23px
