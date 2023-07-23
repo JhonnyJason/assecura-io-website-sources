@@ -1,0 +1,121 @@
+/*==========================================================
+ Firewall 2 Style
+==========================================================*/
+#firewall2-frame
+    max-width max-content-width
+
+#firewall2-text-block
+    position relative
+    z-index 1
+    width fit-content
+    padding 0 80px 80px 80px
+    min-height min-screen-height
+
+    h2
+        font-size: 36px
+        margin-bottom 40px
+        color white
+
+    a
+        margin-top 80px
+        margin-left 300px
+
+    .activatable-container
+        padding-left 160px
+        
+        p
+            margin-left: 40px
+            margin-bottom 60px
+            // height 160px
+            line-height: 160%
+            color black
+            opacity 0
+            z-index: -1
+            transition: opacity 0.3s
+        
+        button
+            @extends .light-dropshadow
+            position: absolute
+            left 80px
+            // top 50%
+            // transform translateY(-50%)
+            // display inline-block
+            color cd-theme-orange
+            background-color white
+            box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
+            height 36px
+            width 60px
+            border-radius: 20px // 36(height) + 2*2(border) -> 40px total height
+            cursor pointer
+
+        button:after
+            box-shadow inset 2px 2px 5px 0 #0002
+            content ""
+            height 36px
+            width 36px
+            border-radius: 50%
+            box-sizing: border-box
+            background-color cd-button-red
+            border solid 1px white
+            box-sizing: border-box
+            position absolute
+            top 0
+            left 0
+            z-index: 2
+            transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+
+    .active
+        // h2
+        //     margin-bottom 20px
+        p
+            opacity: 1
+            z-index: 1
+
+
+        button:after
+            background-color cd-button-green
+            transform translateX(24px)
+   
+#firewall2-decoration
+    position absolute
+    top 360px
+    right 160px
+    height: 260px
+    // transform translateY(-50%)
+    z-index 0
+
+    #firewall2-decoration-pink
+        position absolute
+        top 0
+        right 90px
+        background-color #FF6048
+        height 260px
+        width 260px
+        border-radius: 50%
+
+    #firewall2-decoration-white
+        position absolute
+        top 0
+        right 60px
+        background-color white
+        height 260px
+        width 260px
+        border-radius: 50%
+
+    #firewall2-decoration-red
+        position absolute
+        top 0
+        right 30px
+        background-color cd-theme-darkred
+        height 260px
+        width 260px
+        border-radius: 50%
+
+    #firewall2-decorationimage
+        position absolute
+        top 0
+        right 0
+        height 260px
+        width 260px
+        border-radius: 50%
+

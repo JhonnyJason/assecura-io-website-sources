@@ -1,0 +1,114 @@
+/*==========================================================
+ Firewall 1 Style
+==========================================================*/
+#firewall1-frame
+    max-width max-content-width
+
+#firewall1-text-block
+    position relative
+    z-index 1
+    color white
+    padding 0 80px 120px 80px
+    min-height min-screen-height
+
+    h1
+        margin-bottom 80px
+        margin-left 120px    
+
+    a
+        margin-top 80px
+        margin-left 660px
+
+#firewall1-containers
+    margin-left: 520px
+    
+    h2
+        position relative
+        width: 560px
+        font-size: 36px
+        margin-bottom 40px
+
+    p
+        margin-left: 40px
+        margin-bottom 60px
+        // height 160px
+        line-height: 160%
+        color black
+        opacity 0
+        z-index: -1
+        transition: opacity 0.3s
+        
+    button
+        @extends .light-dropshadow
+        position: absolute
+        right 0
+        top 50%
+        transform translateY(-50%)
+        // display inline-block
+        color cd-theme-orange
+        background-color white
+        box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
+        height 36px
+        width 60px
+        border-radius: 20px // 36(height) + 2*2(border) -> 40px total height
+        cursor pointer
+
+    button:after
+        box-shadow inset 2px 2px 5px 0 #0002
+        content ""
+        height 36px
+        width 36px
+        border-radius: 50%
+        box-sizing: border-box
+        background-color cd-button-red
+        border solid 1px white
+        box-sizing: border-box
+        position absolute
+        top 0
+        left 0
+        z-index: 2
+        transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+
+    .active
+        // h2
+        //     margin-bottom 20px
+        p
+            opacity: 1
+            z-index: 1
+
+
+        button:after
+            background-color cd-button-green
+            transform translateX(24px)
+
+#firewall1-images-block
+    position absolute
+    width 50%
+    height 100%
+    top 0
+    left 0
+    // border solid 2px black
+    box-sizing: border-box
+    z-index: 0
+
+    img
+        @extends .light-dropshadow
+        position absolute
+        border-radius 60px
+        overflow: hidden
+        object-fit: cover
+        background-color white
+
+#firewall1-image1
+    width 260px
+    height 360px
+    left 80px
+    top 320px
+    z-index 0
+
+#firewall1-image2
+    width 360px
+    height 260px
+    left 160px
+    top 560px
+    z-index 1
