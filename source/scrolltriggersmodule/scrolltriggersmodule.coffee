@@ -19,6 +19,8 @@ negativeHysteresisDistance = -50
 
 alwaysInvert = false
 
+scrollTriggerFunctions = []
+
 ############################################################
 export initialize = ->
     log "initialize"
@@ -29,6 +31,10 @@ export initialize = ->
     scrolled()
     return
 
+############################################################
+export addTriggerFunction = (fun) -> scrollTriggerFunctions.push(fun)
+
+
 #### Scroll Triggers
 # if scroll > 50 then make menu smaller
 # if scroll > introsection and < footer then invert colors (orange background...)  
@@ -38,6 +44,7 @@ export initialize = ->
 
 ############################################################
 scrolled = (evnt) ->
+    fun() for fun in scrollTriggerFunctions
     if window.scrollY < smallHeaderBorder then return headerModule.setNormal()
     
     invertedBeginBorder = window.innerHeight - header.offsetHeight * 0.5

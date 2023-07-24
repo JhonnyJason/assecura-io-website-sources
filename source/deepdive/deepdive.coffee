@@ -1,6 +1,8 @@
 import Modules from "./allmodules"
 import domconnect from "./cyberprotectdomconnect"
+import * as commonthreats from "./commonthreats.js"
 domconnect.initialize()
+commonthreats.initialize()
 
 global.allModules = Modules
 
@@ -9,14 +11,17 @@ global.deepDiveFlag = true
 
 ############################################################
 appStartup = ->
-    heading = cyberprotectButton.parentElement
-    activatableContainer = heading.parentElement
-    connectActivation(cyberprotectButton, activatableContainer)
+    containers = document.getElementsByClassName("activatable-container")
+    connectContainer(c) for c in containers
+    Modules.scrolltriggersmodule.addTriggerFunction(commonthreats.onScroll)
     return
 
-connectActivation = (button, container) ->
-    switchFunction = -> container.classList.toggle("active")
-    button.addEventListener("click", switchFunction)
+connectContainer = (container) ->
+    button = container.getElementsByTagName("button")[0]
+    if button? 
+        switchFunction = -> container.classList.toggle("active")
+        button.addEventListener("click", switchFunction)
+    else console.log("Warning! Container did not have a button!")
     return
 
 

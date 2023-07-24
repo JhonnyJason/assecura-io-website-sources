@@ -1,118 +1,104 @@
 /*==========================================================
- Cyber Protect Section
+ Common Threats Section
 ==========================================================*/
-#cyberprotect-section
+#commonthreats-section
+    padding-top 1px
     background-color: cd-theme-orange
-
-    .content-frame
-        min-height 100vh
-        min-height 100lvh
-        height auto
-        margin-bottom 80px
-        
-#cyberprotect-text-block
+    min-height 600vh
     position relative
-    z-index 1
-    color white
-    padding 200px 80px 120px 80px
-    min-height min-screen-height
-
-    h1
-        text-align: center
-        margin-bottom 50px
     
-    button
-        position absolute
-        @extends .light-dropshadow
-        display block
-        border-radius: 20px
-        color cd-theme-orange
-        background-color #fff
-        height 40px
-        width 300px
-        bottom 80px
-        right 80px
-
-#cyberprotect-firewalls-container
-    margin-left: 540px
-    
-    h2
-        font-size: 36px
-        margin-bottom 40px
-    p
-        margin-left: 40px
-        line-height: 22px
-        display none
-    button
-        position: relative
-        top auto
-        right auto
-        bottom auto
-        left auto
-        display inline-block
-        box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
-        height 36px
-        width 60px
-        background-color white
-        vertical-align: middle
-        cursor pointer
-
-    button:after
-        box-shadow inset 2px 2px 5px 0 #0002
-        content ""
-        height 36px
-        width 36px
-        border-radius: 50%
-        box-sizing: border-box
-        background-color cd-theme-orange
-        border solid 1px white
-        box-sizing: border-box
-        position absolute
+    .content-frame
+        position sticky
         top 0
-        left 0
-        z-index: 2
-        transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+        // left 50%
+        width max-content-width
+        // transform translateX(-50%)
+        padding-top 10vh
+        padding-left 80px
+        padding-right 80px
+        margin-bottom 80px
+        margin-top 20vh
+        // margin-bottom 80px
+        display: flex
+        justify-content: space-evenly
 
-    .active
-        h2
-            margin-bottom 20px
-        p
-            display block
-            margin-bottom 55px
+    #threats-display
+        position relative
+        width 50%
 
-        button:after
-            background-color cd-button-green
-            transform translateX(24px)
+        #threats-circle
+            position absolute
+            top 0 
+            left 0
+            width 100%
+            padding-bottom 100%
+            // box-sizing: border-box
+            border solid 4px white
+            border-radius: 50%
 
-#cyberprotect-images-block
-    position absolute
-    width 50%
-    height 100%
-    top 0
-    left 0
-    // border solid 2px black
-    // box-sizing: border-box
-    z-index: 0
+        #threats-container
+            position absolute
+            top 50%
+            left 50%
+            transform translate(-50%, -50%)
 
-    img
-        @extends .light-dropshadow
-        position absolute
-        border-radius 60px
-        overflow: hidden
-        object-fit: cover
-        background-color white
+            h2
+                color white
+                text-align center
+                font-size 36px
+                font-family: NotoSans Regular
+            nav
+                display flex
+                justify-content: center
+                padding-top 20px
+                a
+                    height 15px
+                    width 15px
+                    transform: scale(0.5)
+                    transition transform 0.3s
+                    margin-left 5px
+                    cursor pointer
+                a.active
+                    transform: scale(1.0)
 
-#cyberprotect-image1
-    width 260px
-    height 360px
-    left 80px
-    top 320px
-    z-index 0
+            a#threats-call-to-action
+                margin auto
+        
+        #threats-content
+            position relative
+            height: 220px
+            width 300px
+            margin auto
+            
+            .active
+                opacity: 1
+                z-index: 1
 
-#cyberprotect-image2
-    width 360px
-    height 260px
-    left 160px
-    top 560px
-    z-index 1
+        #threats-content > *
+            position absolute
+            top 50%
+            left 50%
+            width 100%
+            transform translate(-50%, -50%)
+            opacity 0
+            z-index -1
+            text-align center
+            transition: opacity 0.3s
+            h3
+                font-size: 28px
+                padding-bottom 20px
 
+    #threats-right-decoration
+        width 50%
+        h1
+            color white
+            font-size: 56px
+            margin-bottom 40px
+            margin-left 20px
+        #decoration-arrow
+            margin-left 20px
+            width 80px
+            height 80px
+            background-image: url("/img/arrow.svg")
+            background-size: contain
+            background-repeat: no-repeat
