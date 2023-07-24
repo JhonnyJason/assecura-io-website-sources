@@ -28,6 +28,14 @@ dataprotectSection = document.getElementById("dataprotect-section")
 electronicsprotectSection = document.getElementById("electronicsprotect-section")
 contactusSection = document.getElementById("contactus-section")
 
+firewall1Frame = document.getElementById("firewall1-frame")
+firewall1ImagesBlock = document.getElementById("firewall1-images-block")
+firewall2Frame = document.getElementById("firewall2-frame")
+firewall2Decoration = document.getElementById("firewall2-decoration")
+firewall3Frame = document.getElementById("firewall3-frame")
+firewall3ImagesBlock = document.getElementById("firewall3-images-block")
+
+
 #endregion
 
 ############################################################
@@ -57,6 +65,11 @@ export initialize = ->
     if dataprotectSection? then initializeDataprotectSection()
     if electronicsprotectSection? then initializeElectronicsprotectSection()
     if contactusSection? then initializeContactusSection()
+
+    if firewall1Frame? then initializeFirewall1Frame()
+    if firewall2Frame? then initializeFirewall2Frame()
+    if firewall3Frame? then initializeFirewall3Frame()
+    
     return
 
 ############################################################
@@ -426,6 +439,169 @@ electronicsprotectAnimation = ->
     return
 
 #endregion
+
+
+############################################################
+#region firewall1 section
+
+firewall1Start = 0.0
+firewall1Height = 0.0
+firewall1Elements = []
+
+############################################################
+initializeFirewall1Frame = ->
+    log "initializeFirewall1Frame"
+    targetToEnterFunction.set(firewall1Frame, firewall1FrameEnteredScreen)
+    targetToLeaveFunction.set(firewall1Frame, firewall1FrameLeftScreen)
+    intersectionObserver.observe(firewall1Frame)
+
+    firewall1Elements = firewall1ImagesBlock.getElementsByTagName("img")
+    return
+
+############################################################
+firewall1FrameEnteredScreen = ->
+    log "firewall1FrameEnteredScreen"
+    firewall1Start = firewall1Frame.getBoundingClientRect().top + window.scrollY
+    firewall1Height = 1.0 * firewall1Frame.offsetHeight
+        
+    anim.addAnimationTask(firewall1Animation)
+    return
+
+firewall1FrameLeftScreen = ->
+    log "firewall1FrameLeftScreen"
+    anim.addAnimationTask(firewall1Animation)
+    return
+
+
+############################################################
+firewall1Animation = ->
+    progress = 1.0 * (window.scrollY - firewall1Start) / firewall1Height
+    
+    progress = progress - 0.3
+    max = 40.0
+
+    mult0 = 1.0
+    mult1 = 3.0
+
+    delta0 = mult0 * max * progress
+    delta1 = mult1 * max * progress
+
+    firewall1Elements[0].style.transform = "translateY(#{delta0}px)"
+    firewall1Elements[1].style.transform = "translateY(#{delta1}px)"
+    return
+
+#endregion
+
+############################################################
+#region firewall2 section
+
+firewall2Start = 0.0
+firewall2Height = 0.0
+firewall2Elements = []
+
+############################################################
+initializeFirewall2Frame = ->
+    log "initializeFirewall2Frame"
+    targetToEnterFunction.set(firewall2Frame, firewall2EnteredScreen)
+    targetToLeaveFunction.set(firewall2Frame, firewall2SectionLeftScreen)
+    intersectionObserver.observe(firewall2Frame)
+
+    firewall2Elements = [...firewall2Decoration.children]
+    return
+
+############################################################
+firewall2EnteredScreen = ->
+    log "firewall2EnteredScreen"
+    firewall2Start = firewall2Frame.getBoundingClientRect().top + window.scrollY
+    firewall2Height = 1.0 * firewall2Frame.offsetHeight
+
+    anim.addAnimationTask(firewall2Animation)
+    return
+
+firewall2SectionLeftScreen = ->
+    log "firewall2SectionLeftScreen"
+    anim.removeAnimationTask(firewall2Animation)
+    return
+
+############################################################
+firewall2Animation = ->
+    progress = 1.0 * (window.scrollY - firewall2Start) / firewall2Height
+    
+    progress = progress - 0.3
+    max = 40.0
+
+    mult0 = 1.0
+    mult1 = 2.0
+    mult2 = 3.0
+    mult3 = 4.0
+
+    delta0 = mult0 * max * progress
+    delta1 = mult1 * max * progress
+    delta2 = mult2 * max * progress
+    delta3 = mult3 * max * progress
+
+    firewall2Elements[0].style.transform = "translateY(#{delta0}px)"
+    firewall2Elements[1].style.transform = "translateY(#{delta1}px)"
+    firewall2Elements[2].style.transform = "translateY(#{delta2}px)"
+    firewall2Elements[3].style.transform = "translateY(#{delta3}px)"
+
+    return
+    
+#endregion
+
+############################################################
+#region firewall3 section
+
+firewall3Start = 0.0
+firewall3Height = 0.0
+firewall3Images = []
+
+############################################################
+initializeFirewall3Frame = ->
+    log "initializeFirewall3Frame"
+    targetToEnterFunction.set(firewall3Frame, firewall3EnteredScreen)
+    targetToLeaveFunction.set(firewall3Frame, firewall3SectionLeftScreen)
+    intersectionObserver.observe(firewall3Frame)
+
+    firewall3Images = firewall3ImagesBlock.getElementsByTagName("img")
+    return
+
+############################################################
+firewall3EnteredScreen = ->
+    log "firewall3EnteredScreen"
+    firewall3Start = firewall3Frame.getBoundingClientRect().top + window.scrollY
+    firewall3Height = 1.0 * firewall3Frame.offsetHeight
+
+    anim.addAnimationTask(firewall3Animation)
+    return
+
+firewall3SectionLeftScreen = ->
+    log "firewall3SectionLeftScreen"
+    anim.removeAnimationTask(firewall3Animation)
+    return
+
+############################################################
+firewall3Animation = ->
+    progress = 1.0 * (window.scrollY - firewall3Start) / firewall3Height
+
+    progress = progress - 0.3
+    max = 50.0
+
+    # progress = (progress - 0.25) * 2.0
+
+    deltaP = Math.round(max * Math.sin(progress * Math.PI)) 
+    deltaN = -1 * deltaP
+
+    firewall3Images[0].style.transform = "translateY(#{deltaP}px)"
+    firewall3Images[1].style.transform = "translateY(#{deltaN}px)"
+    firewall3Images[2].style.transform = "translateY(#{deltaP}px)"
+    firewall3Images[3].style.transform = "translateY(#{deltaN}px)"
+
+    return
+
+#endregion
+
+
 
 ############################################################
 #region outro section

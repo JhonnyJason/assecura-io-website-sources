@@ -44,10 +44,13 @@ setThreatActive = (num) ->
 onNavClick = (evnt) ->
     log "onNavClick"
     log evnt.target.id
-    options = {
-        top: borders[evnt.target.id]
-        behavior: "instant"
-    }
+    top = borders[evnt.target.id]
+    
+    if window.scrollY < borders[1] or window.scrollY > borders[5]
+        behavior = "smooth"
+    else behavior = "instant"
+    
+    options = { top, behavior }
     window.scroll(options)
     return
 
