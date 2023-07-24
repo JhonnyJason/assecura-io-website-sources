@@ -44,7 +44,11 @@ setThreatActive = (num) ->
 onNavClick = (evnt) ->
     log "onNavClick"
     log evnt.target.id
-    v.scrollTo(borders[evnt.target.id])
+    options = {
+        top: borders[evnt.target.id]
+        behavior: "instant"
+    }
+    window.scroll(options)
     return
 
 
