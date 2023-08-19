@@ -1,0 +1,85 @@
+/*==========================================================
+ General Content Styles
+==========================================================*/
+.content-frame
+    width 100%
+    max-width: max-content-width
+    margin: auto
+
+/*==========================================================
+ Specific Content Styles
+==========================================================*/
+#protectnow-frame
+
+    position: relative
+    // padding-top 300px
+    padding-top 42vh
+    padding-bottom 300px
+    min-height 100vh
+    min-height 100lvh
+    height auto
+    box-sizing: border-box
+    background-color: cd-theme-orange
+     
+    h2
+        font-size: 28px
+        width max-content-width
+        padding 0 80px
+        box-sizing: border-box
+        margin-left auto
+        margin-right auto
+        margin-bottom 60px
+        text-align: center
+
+    form
+        width 720px
+        // width max-content-width
+        // padding 0 80px
+        // box-sizing: border-box
+        margin-left auto
+        margin-right auto
+        display grid
+        grid-gap 40px
+        grid-template-columns: 1fr 1fr
+        text-align: center
+        margin-bottom 60px
+        
+
+        .double-cell
+            grid-column: span 2
+        .input-cell
+            label
+                display block
+                margin-bottom 16px
+
+            input 
+                @extends .light-dropshadow
+                background-color white
+                display block
+                width 100%
+                height 40px
+                border-radius: 20px
+                line-height 40px
+                text-align: center
+                border: none
+                padding 0
+
+        .radiobutton-cell
+            text-align: left
+            margin auto
+            p
+                margin-bottom 16px
+            
+        .button-cell
+            button
+                @extends .light-dropshadow
+                display block
+                margin-left auto
+                background-color white
+                color cd-theme-orange
+                width 300px
+                height 40px
+                border-radius: 20px
+                font-family: NotoSans Bold
+                line-height 40px
+                text-align: center

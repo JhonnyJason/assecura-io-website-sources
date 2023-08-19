@@ -26,6 +26,8 @@ export initialize = ->
     log "initialize"
     if cyberProtectFlag? then alwaysInvert = true
     if deepDiveFlag? then alwaysInvert = true
+    if protectNowFlag? then alwaysInvert = true
+
     
     document.addEventListener("scroll", scrolled)
     scrolled()
