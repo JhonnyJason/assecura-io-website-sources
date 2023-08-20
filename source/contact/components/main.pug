@@ -1,0 +1,30 @@
+//- main content structure
+#contact-frame
+    #background-map
+
+    #contact-container
+        #contact-details
+            h2 Ruf uns an
+            p: a(href="tel:+433167200037300") 0316 7200037300
+            h2 Sende uns eine E-Mail
+            p: a(href="mailto:office@assecura.at") office@assecura.at
+            h2 Unsere Adresse 
+            p Assecura GmbH Nfg KG<br>
+                | Kepplerstraße 105/3<br>
+                | 8020 Graz<br>
+                | Austria
+
+        form#contact-form
+            h2 Sende uns eine Nachricht
+            .input-cell
+                //- label(for="name-input") Name
+                input#name-input(name="name" type="text" placeholder="Name" required)
+            .input-cell
+                //- label(for="email-input") E-Mail
+                input#email-input(name="name" type="email" placeholder="E-Mail" required)
+            .input-cell
+                //- label(for="message-textarea") Nachricht
+                textarea#message-textarea(name="message" cols="30" rows="10" placeholder="Nachricht" required)
+            .button-cell
+                button#submit-button Senden 
+

@@ -27,8 +27,9 @@ export initialize = ->
     if cyberProtectFlag? then alwaysInvert = true
     if deepDiveFlag? then alwaysInvert = true
     if protectNowFlag? then alwaysInvert = true
+    if contactFlag? then alwaysInvert = true
+    if aboutFlag? then alwaysInvert = true
 
-    
     document.addEventListener("scroll", scrolled)
     scrolled()
     return
