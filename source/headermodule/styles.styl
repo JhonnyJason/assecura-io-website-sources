@@ -1,5 +1,5 @@
 // header styles
-home-button-size = 80px
+home-button-size = 100px
 
 /*==========================================================*/
 header
@@ -31,33 +31,27 @@ header
     width home-button-size
     
 #navigation-bar
-    box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
+    box-shadow 0 3px 6px #0004, inset 0 3px 6px #0004
     position relative
     display flex
-    height 40px
+    height 60px
     border solid 2px
     box-sizing: border-box
-    border-radius 20px
+    border-radius 30px
     transition background-color 0.7s
     overflow: hidden
     a
-        // text-shadow: 1px 1px 2px #0003
         align-self: center
-        width: 150px
+        padding 0 30px
         text-align: center
         transition: color 0.3s cubic-bezier(0,0.8,0.8,1) 
 
-    #nav-contact
-        width 100px
-
-    #nav-about
-        width 100px
 
 header.gone
     transform translate(-50%, -102%)
 
 header.smaller
-    transform translate(-50%, -60px)
+    transform translate(-50%, -40px)
 
 header.inverted
     #header
@@ -77,6 +71,6 @@ header.no-navbar
     color cd-theme-orange
     text-shadow: none !important    
     background-color white
-    height 40px
-    line-height: 40px
-    border-radius: 20px
+    height 60px
+    line-height: 60px
+    border-radius: 30px
