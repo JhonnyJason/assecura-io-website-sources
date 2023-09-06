@@ -43,7 +43,7 @@ min-screen-height = 650px
  Global Classes
 ==========================================================*/
 .dropshadow
-    box-shadow 0px 3px 6px 0 #0004
+    box-shadow 0px 3px 6px 0 #0002
 
 .full-height
     height 100vh
@@ -62,20 +62,27 @@ body
     background-color cd-background
     color cd-foreground
     font-family: 'NotoSans Light'
-    font-size: 20px
-    line-height: 23px
+    // font-size: 16px
+    // line-height: 18px
+    font-size: 18px
+    line-height: 21px
 
 h1
 h2
-    font-size: 70px
+    font-size: 56px
     font-family: "NotoSans Light"
-    line-height: 70px
-    text-shadow: 0 3px 6px #0004
+    line-height: 60px
+    text-shadow: 0 3px 6px #0002
 
 h3
-    font-size: 40px
+    font-size: 32px
     font-family: "NotoSans Light"
-    line-height: 50px
+    line-height: 40px
+
+p
+    font-size: 18px
+    line-height: 21px
+
 
 b
     font-family: "NotoSans Bold"
@@ -86,5 +93,11 @@ svg
 
 button
     @extends .dropshadow
+    font-size: 16px
     line-height 40px
     border-radius: 20px
+    font-family: "NotoSans Regular"
+    width 200px
+    text-align: center
+    cursor pointer
+    

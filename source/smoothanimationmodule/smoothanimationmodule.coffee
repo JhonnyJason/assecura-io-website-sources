@@ -11,29 +11,29 @@ allTasksArray = []
 
 ############################################################
 export initialize = ->
-    log "initialize"
+    ## prod log "initialize"
     requestAnimationFrame(heartbeat)
     return
 
 ############################################################
 heartbeat = ->
-    log "heartbeat"
+    ## prod log "heartbeat"
     task() for task in allTasksArray
     requestAnimationFrame(heartbeat)
     return
 
 ############################################################
 export addAnimationTask = (task) ->
-    log "addAnimationTask"
+    ## prod log "addAnimationTask"
     allTasks.add(task)
     allTasksArray = [...allTasks]
-    log "number of Tasks now: #{allTasksArray.length}"
+    ## prod log "number of Tasks now: #{allTasksArray.length}"
     return
 
 ############################################################
 export removeAnimationTask = (task) ->
-    log "addAnimationTask"
+    ## prod log "addAnimationTask"
     allTasks.delete(task)
     allTasksArray = [...allTasks]
-    log "number of Tasks now: #{allTasksArray.length}"
+    ## prod log "number of Tasks now: #{allTasksArray.length}"
     return

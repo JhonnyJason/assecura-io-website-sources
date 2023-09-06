@@ -50,7 +50,7 @@ navbarClasses = new Set()
 
 ############################################################
 export initialize = ->
-    log "initialize"
+    ## prod log "initialize"
     intersectionOptions = 
         root: null # browser viewport
         rootMargin: "0%" # margin around root which does not count
@@ -74,7 +74,7 @@ export initialize = ->
 
 ############################################################
 onIntersectTrigger = (entries) ->
-    log "onIntersectTrigger"
+    ## prod log "onIntersectTrigger"
     for entry in entries
         if entry.isIntersecting
             targetToEnterFunction.get(entry.target)()
@@ -83,7 +83,7 @@ onIntersectTrigger = (entries) ->
 
 ############################################################
 applyNavbarClasses = ->
-    log "applyNavbarClasses"
+    ## prod log "applyNavbarClasses"
     log navbarClasses.size
     if navbarClasses.size == 0
         navigationBar.className = ""
@@ -99,7 +99,7 @@ applyNavbarClasses = ->
 #region hero section
 
 initializeHeroSection = ->
-    log "initializeHeroSection"
+    ## prod log "initializeHeroSection"
     targetToEnterFunction.set(heroSection, heroSectionEnteredScreen)
     targetToLeaveFunction.set(heroSection, heroSectionLeftScreen)
     intersectionObserver.observe(heroSection)
@@ -108,18 +108,17 @@ initializeHeroSection = ->
 
 ############################################################
 heroSectionEnteredScreen = ->
-    log "heroSectionEnteredScreen"
+    ## prod log "heroSectionEnteredScreen"
     anim.addAnimationTask(heroGridAnimation)
     return
 
 heroSectionLeftScreen = ->
-    log "heroSectionLeftScreen"
+    ## prod log "heroSectionLeftScreen"
     anim.removeAnimationTask(heroGridAnimation)
     return
 
 ############################################################
 heroGridAnimation = ->
-    log "heroGridAnimation"
     if window.scrollY > window.innerHeight then return 
 
     upperBorder = 0.15
@@ -150,7 +149,7 @@ smartbrokerHeight = 0.0
 smartbrokerCards = []
 ############################################################
 initializeSmartbrokerSection = ->
-    log "initializeSmartbrokerSection"
+    ## prod log "initializeSmartbrokerSection"
     # targetToEnterFunction.set(smartbrokerSection, smartbrokerSectionEnteredScreen)
     # targetToLeaveFunction.set(smartbrokerSection, smartbrokerSectionLeftScreen)
     # intersectionObserver.observe(smartbrokerSection)
@@ -160,14 +159,14 @@ initializeSmartbrokerSection = ->
 
 ############################################################
 smartbrokerSectionEnteredScreen = ->
-    log "smartbrokerSectionEnteredScreen"
+    ## prod log "smartbrokerSectionEnteredScreen"
     anim.addAnimationTask(smartbrokerAnimation)
     smartbrokerStart = smartbrokerSection.getBoundingClientRect().top + window.scrollY
     smartbrokerHeight = 1.0 * smartbrokerSection.offsetHeight
     return
 
 smartbrokerSectionLeftScreen = ->
-    log "smartbrokerSectionLeftScreen"
+    ## prod log "smartbrokerSectionLeftScreen"
     anim.removeAnimationTask(smartbrokerAnimation)
     return
 
@@ -196,7 +195,7 @@ dangerElements = []
 
 ############################################################
 initializeDangerSection = ->
-    log "initializeDangerSection"
+    ## prod log "initializeDangerSection"
     targetToEnterFunction.set(dangerSection, dangerSectionEnteredScreen)
     targetToLeaveFunction.set(dangerSection, dangerSectionLeftScreen)
     intersectionObserver.observe(dangerSection)
@@ -207,14 +206,14 @@ initializeDangerSection = ->
 
 ############################################################
 dangerSectionEnteredScreen = ->
-    log "dangerSectionEnteredScreen"
+    ## prod log "dangerSectionEnteredScreen"
     dangerStart = dangerSection.getBoundingClientRect().top + window.scrollY
     dangerHeight = 1.0 * dangerSection.offsetHeight
     anim.addAnimationTask(dangerAnimation)
     return
 
 dangerSectionLeftScreen = ->
-    log "dangerSectionLeftScreen"
+    ## prod log "dangerSectionLeftScreen"
     anim.addAnimationTask(dangerAnimation)
     return
 
@@ -261,7 +260,7 @@ cyberprotectElements = []
 
 ############################################################
 initializeCyberprotectSection = ->
-    log "initializeCyberprotectSection"
+    ## prod log "initializeCyberprotectSection"
     targetToEnterFunction.set(cyberprotectSection, cyberprotectSectionEnteredScreen)
     targetToLeaveFunction.set(cyberprotectSection, cyberprotectSectionLeftScreen)
     intersectionObserver.observe(cyberprotectSection)
@@ -285,7 +284,7 @@ connectActivation = (button, container) ->
 
 ############################################################
 cyberprotectSectionEnteredScreen = ->
-    log "cyberprotectSectionEnteredScreen"
+    ## prod log "cyberprotectSectionEnteredScreen"
     cyberprotectStart = cyberprotectSection.getBoundingClientRect().top + window.scrollY
     cyberprotectHeight = 1.0 * cyberprotectSection.offsetHeight
     
@@ -296,7 +295,7 @@ cyberprotectSectionEnteredScreen = ->
     return
 
 cyberprotectSectionLeftScreen = ->
-    log "cyberprotectSectionLeftScreen"
+    ## prod log "cyberprotectSectionLeftScreen"
     navbarClasses.delete("on-cyberprotect")
     applyNavbarClasses()
 
@@ -331,7 +330,7 @@ dataprotectElements = []
 
 ############################################################
 initializeDataprotectSection = ->
-    log "initializeDataprotectSection"
+    ## prod log "initializeDataprotectSection"
     targetToEnterFunction.set(dataprotectSection, dataprotectSectionEnteredScreen)
     targetToLeaveFunction.set(dataprotectSection, dataprotectSectionLeftScreen)
     intersectionObserver.observe(dataprotectSection)
@@ -341,7 +340,7 @@ initializeDataprotectSection = ->
 
 ############################################################
 dataprotectSectionEnteredScreen = ->
-    log "dataprotectSectionEnteredScreen"
+    ## prod log "dataprotectSectionEnteredScreen"
     dataprotectStart = dataprotectSection.getBoundingClientRect().top + window.scrollY
     dataprotectHeight = 1.0 * dataprotectSection.offsetHeight
 
@@ -352,7 +351,7 @@ dataprotectSectionEnteredScreen = ->
     return
 
 dataprotectSectionLeftScreen = ->
-    log "dataprotectSectionLeftScreen"
+    ## prod log "dataprotectSectionLeftScreen"
     navbarClasses.delete("on-dataprotect")
     applyNavbarClasses()
 
@@ -391,7 +390,7 @@ electronicsprotectImages = []
 
 ############################################################
 initializeElectronicsprotectSection = ->
-    log "initializeElectronicsprotectSection"
+    ## prod log "initializeElectronicsprotectSection"
     targetToEnterFunction.set(electronicsprotectSection, electronicsprotectSectionEnteredScreen)
     targetToLeaveFunction.set(electronicsprotectSection, electronicsprotectSectionLeftScreen)
     intersectionObserver.observe(electronicsprotectSection)
@@ -401,7 +400,7 @@ initializeElectronicsprotectSection = ->
 
 ############################################################
 electronicsprotectSectionEnteredScreen = ->
-    log "electronicsprotectSectionEnteredScreen"
+    ## prod log "electronicsprotectSectionEnteredScreen"
     electronicsprotectStart = electronicsprotectSection.getBoundingClientRect().top + window.scrollY
     electronicsprotectHeight = 1.0 * electronicsprotectSection.offsetHeight
 
@@ -412,7 +411,7 @@ electronicsprotectSectionEnteredScreen = ->
     return
 
 electronicsprotectSectionLeftScreen = ->
-    log "electronicsprotectSectionLeftScreen"
+    ## prod log "electronicsprotectSectionLeftScreen"
     navbarClasses.delete("on-electronicsprotect")
     applyNavbarClasses()
 
@@ -450,7 +449,7 @@ firewall1Elements = []
 
 ############################################################
 initializeFirewall1Frame = ->
-    log "initializeFirewall1Frame"
+    ## prod log "initializeFirewall1Frame"
     targetToEnterFunction.set(firewall1Frame, firewall1FrameEnteredScreen)
     targetToLeaveFunction.set(firewall1Frame, firewall1FrameLeftScreen)
     intersectionObserver.observe(firewall1Frame)
@@ -460,7 +459,7 @@ initializeFirewall1Frame = ->
 
 ############################################################
 firewall1FrameEnteredScreen = ->
-    log "firewall1FrameEnteredScreen"
+    ## prod log "firewall1FrameEnteredScreen"
     firewall1Start = firewall1Frame.getBoundingClientRect().top + window.scrollY
     firewall1Height = 1.0 * firewall1Frame.offsetHeight
         
@@ -468,7 +467,7 @@ firewall1FrameEnteredScreen = ->
     return
 
 firewall1FrameLeftScreen = ->
-    log "firewall1FrameLeftScreen"
+    ## prod log "firewall1FrameLeftScreen"
     anim.addAnimationTask(firewall1Animation)
     return
 
@@ -501,7 +500,7 @@ firewall2Elements = []
 
 ############################################################
 initializeFirewall2Frame = ->
-    log "initializeFirewall2Frame"
+    ## prod log "initializeFirewall2Frame"
     targetToEnterFunction.set(firewall2Frame, firewall2EnteredScreen)
     targetToLeaveFunction.set(firewall2Frame, firewall2SectionLeftScreen)
     intersectionObserver.observe(firewall2Frame)
@@ -511,7 +510,7 @@ initializeFirewall2Frame = ->
 
 ############################################################
 firewall2EnteredScreen = ->
-    log "firewall2EnteredScreen"
+    ## prod log "firewall2EnteredScreen"
     firewall2Start = firewall2Frame.getBoundingClientRect().top + window.scrollY
     firewall2Height = 1.0 * firewall2Frame.offsetHeight
 
@@ -519,7 +518,7 @@ firewall2EnteredScreen = ->
     return
 
 firewall2SectionLeftScreen = ->
-    log "firewall2SectionLeftScreen"
+    ## prod log "firewall2SectionLeftScreen"
     anim.removeAnimationTask(firewall2Animation)
     return
 
@@ -558,7 +557,7 @@ firewall3Images = []
 
 ############################################################
 initializeFirewall3Frame = ->
-    log "initializeFirewall3Frame"
+    ## prod log "initializeFirewall3Frame"
     targetToEnterFunction.set(firewall3Frame, firewall3EnteredScreen)
     targetToLeaveFunction.set(firewall3Frame, firewall3SectionLeftScreen)
     intersectionObserver.observe(firewall3Frame)
@@ -568,7 +567,7 @@ initializeFirewall3Frame = ->
 
 ############################################################
 firewall3EnteredScreen = ->
-    log "firewall3EnteredScreen"
+    ## prod log "firewall3EnteredScreen"
     firewall3Start = firewall3Frame.getBoundingClientRect().top + window.scrollY
     firewall3Height = 1.0 * firewall3Frame.offsetHeight
 
@@ -576,7 +575,7 @@ firewall3EnteredScreen = ->
     return
 
 firewall3SectionLeftScreen = ->
-    log "firewall3SectionLeftScreen"
+    ## prod log "firewall3SectionLeftScreen"
     anim.removeAnimationTask(firewall3Animation)
     return
 
@@ -611,7 +610,7 @@ contactusHeight = 0.0
 
 ############################################################
 initializeContactusSection = ->
-    log "initializeContactusSection"
+    ## prod log "initializeContactusSection"
     targetToEnterFunction.set(contactusSection, contactusSectionEnteredScreen)
     targetToLeaveFunction.set(contactusSection, contactusSectionLeftScreen)
     intersectionObserver.observe(contactusSection)
@@ -621,14 +620,14 @@ initializeContactusSection = ->
 
 ############################################################
 contactusSectionEnteredScreen = ->
-    log "contactusSectionEnteredScreen"
+    ## prod log "contactusSectionEnteredScreen"
     contactusStart = contactusSection.getBoundingClientRect().top + window.scrollY
     contactusHeight = 1.0 * contactusSection.offsetHeight
     anim.addAnimationTask(contactusAnimation)
     return
 
 contactusSectionLeftScreen = ->
-    log "contactusSectionLeftScreen"
+    ## prod log "contactusSectionLeftScreen"
     anim.removeAnimationTask(contactusAnimation)
     contactusCalltoactionFrame.style.removeProperty("transform")
     return

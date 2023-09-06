@@ -57,21 +57,11 @@
     width 100%
     text-align: center
 
-    a        
-        box-shadow 2px 2px 7px 0 #0004, inset 2px 2px 7px 0 #0004         
-        border-radius: 20px
-        border solid 2px
-        box-sizing: border-box
-        color white
-        background-color transparent
-        height 40px
-        cursor pointer
-        line-height: 36px
-        text-align: center
-        font-family: NotoSans Regular
-        width 300px
-        font-size: 16px
-        margin-top 80px
+    a
+        @extends button
+        color cd-theme-orange
+        background-color cd-flash
+        margin-top 40px
 
 #contactus-calltoaction-frame.here
     transform translateX(0)
