@@ -21,8 +21,8 @@
     box-sizing: border-box
     background-color: cd-theme-orange
      
-    h2
-        font-size: 28px
+    h3
+        color white
         width max-content-width
         padding 0 80px
         box-sizing: border-box
@@ -52,17 +52,19 @@
                 display block
                 margin-bottom 16px
 
-            input 
+            input
                 @extends .dropshadow
                 background-color white
                 display block
                 width 100%
+                padding 0 20px
+                box-sizing: border-box
                 height 40px
                 border-radius: 20px
                 line-height 40px
-                text-align: center
+                // text-align: center
                 border: none
-                padding 0
+                // padding 0
 
         .radiobutton-cell
             text-align: left
@@ -75,14 +77,8 @@
 
         .button-cell
             button
-                @extends .dropshadow
                 display block
                 margin-left auto
                 background-color white
                 color cd-theme-orange
-                width 300px
-                height 40px
-                border-radius: 20px
-                font-family: NotoSans Bold
-                line-height 40px
-                text-align: center
+                
