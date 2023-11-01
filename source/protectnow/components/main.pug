@@ -1,50 +1,51 @@
 //- main content structure
 #protectnow-frame
     .content-frame
-        h3 Wir freuen uns,dass du Interesse an unserer Unternehmensabcherung hast. Um den bestmöglichen Schutz zu bieten, benötigen wir vorab einige Informationen.
+        h1 Protect Now
+        p Wir freuen uns,dass du Interesse an unserer Unternehmensabcherung hast. Um den bestmöglichen Schutz zu bieten, benötigen wir vorab einige Informationen.
 
-    form#protectnow-form
-        .input-cell
-            //- label(for="companyname-input") Firmenname
-            input#companyname-input(name="companyname" type="text" placeholder="Firmenname" required)
-        .input-cell
-            //- label(for="phone-input") Telefon
-            input#phone-input(name="phone" placeholder="Telefon" type="tel" required)
-        .input-cell
-            //- label(for="companytype-input") Gesellschaftsform
-            input#companytype-input(name="companytype" type="text" placeholder="Gesellschaftsform" required)
-        .input-cell
-            //- label(for="annualnetsales-input") Jahresnettoumsatz
-            input#annualnetsales-input(name="annualnetsales" type="text" placeholder="Jahresnettoumsatz" required)
+        form#protectnow-form
+            .input-cell
+                //- label(for="companyname-input") Firmenname
+                input#companyname-input(name="companyname" type="text" placeholder="Firmenname" required)
+            .input-cell
+                //- label(for="phone-input") Telefon
+                input#phone-input(name="phone" placeholder="Telefon" type="tel" required)
+            .input-cell
+                //- label(for="companytype-input") Gesellschaftsform
+                input#companytype-input(name="companytype" type="text" placeholder="Gesellschaftsform" required)
+            .input-cell
+                //- label(for="annualnetsales-input") Jahresnettoumsatz
+                input#annualnetsales-input(name="annualnetsales" type="text" placeholder="Jahresnettoumsatz" required)
 
-        .input-cell.double-cell
-            //- label(for="companyaddress-input") Firmen Adresse (PLZ, Ort, Straße mit HNr.)
-            input#companyaddress-input(name="companyaddress" type="text" placeholder="Firmen Adresse (PLZ, Ort, Straße mit HNr.)" required)
+            .input-cell.double-cell
+                //- label(for="companyaddress-input") Firmen Adresse (PLZ, Ort, Straße mit HNr.)
+                input#companyaddress-input(name="companyaddress" type="text" placeholder="Firmen Adresse (PLZ, Ort, Straße mit HNr.)" required)
 
-        .input-cell
-            //- label(for="contactperson-input") Kontaktperson
-            input#contactperson-input(name="contactperson" type="text" placeholder="Kontaktperson" required)
-        .input-cell
-            //- label(for="employeesnumber-input") Anzahl der Mitarbeiter
-            input#employeesnumber-input(name="employeesnumber" type="text" placeholder="Anzahl der Mitarbeiter" required)
-        .input-cell
-            //- label(for="email-input") E-Mail
-            input#email-input(name="email" type="email" placeholder="E-Mail" required)
-        .input-cell
-            //- label(for="business-input") Gewerbe
-            input#business-input(name="business" type="text" placeholder="Gewerbe" required)
+            .input-cell
+                //- label(for="contactperson-input") Kontaktperson
+                input#contactperson-input(name="contactperson" type="text" placeholder="Kontaktperson" required)
+            .input-cell
+                //- label(for="employeesnumber-input") Anzahl der Mitarbeiter
+                input#employeesnumber-input(name="employeesnumber" type="text" placeholder="Anzahl der Mitarbeiter" required)
+            .input-cell
+                //- label(for="email-input") E-Mail
+                input#email-input(name="email" type="email" placeholder="E-Mail" required)
+            .input-cell
+                //- label(for="business-input") Gewerbe
+                input#business-input(name="business" type="text" placeholder="Gewerbe" required)
 
-        .input-cell
-            //- label(for="desiredcoverage-input") Gewünschte Versicherungssumme
-            input#desiredcoverage-input(name="desiredcoverage" type="text" placeholder="Gewünschte Versicherungssumme" required)
-        .radiobutton-cell
-            p Basis IT Sicherheitsvorkehrungen?
-            input#securitymeasures-yes(name="securitymeasures" type="radio" required)
-            label(for="securitymeasures-yes") Ja <br>
-            input#securitymeasures-no(name="securitymeasures" type="radio")
-            label(for="securitymeasures-no") Nein
-        
-        .empty
-        .button-cell
-            button#submit-button Senden 
+            .input-cell
+                //- label(for="desiredcoverage-input") Gewünschte Versicherungssumme
+                input#desiredcoverage-input(name="desiredcoverage" type="text" placeholder="Gewünschte Versicherungssumme" required)
+            .radiobutton-cell
+                p Basis IT Sicherheitsvorkehrungen?
+                input#securitymeasures-yes(name="securitymeasures" type="radio" required)
+                label(for="securitymeasures-yes") Ja <br>
+                input#securitymeasures-no(name="securitymeasures" type="radio")
+                label(for="securitymeasures-no") Nein
+            
+            .empty
+            .button-cell
+                button#submit-button Senden 
 
