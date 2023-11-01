@@ -1,8 +1,8 @@
 //- footer structure
 #footer
-    #footer-left 
-        #address-left
-            p Assecura GmbH Nfg KG
+    #footer-address-block
+        #address-text
+            p Assecura GmbH
             p Kepplerstraße 105/3
             p 8020 Graz
         #footer-social-media-buttons
@@ -15,17 +15,16 @@
             a#footer-facebook-button(href="https://www.facebook.com/assecura.at" target="_blank")
                 svg: use(href="#svg-facebook-icon")
 
-    #footer-right
-        #footer-menu
-            h2 Menü
-            p: a(href="/cyberprotect.html") Cyber Protect
-            p: a(href="/deepdive.html") Deep Dive
-            p: a(href="/protectnow.html") Protect Now
-            p: a(href="/contact.html") Kontakt
+    #footer-menu.link-list
+        h2 Menü
+        p: a(href="/cyberprotect.html") Cyber Protect
+        p: a(href="/deepdive.html") Deep Dive
+        p: a(href="/protectnow.html") Protect Now
+        p: a(href="/contact.html") Kontakt
 
-        #footer-company
-            h2 Company 
-            p: a(href="/about.html") Über
+    #footer-company.link-list
+        h2 Company 
+        p: a(href="/about.html") Über
 
-        #footer-dataprotection
-            h2 Datenschutz
+    #footer-dataprotection.link-list
+        h2 Datenschutz
