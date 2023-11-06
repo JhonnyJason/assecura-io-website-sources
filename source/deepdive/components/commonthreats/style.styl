@@ -4,52 +4,54 @@
 #commonthreats-section
     padding-top 1px
     background-color: cd-theme-orange
-    min-height 600vh
     position relative
     
     .content-frame
-        position sticky
-        top 0
-        // left 50%
-        width max-content-width
-        // transform translateX(-50%)
+        // position relative
         padding-top 10vh
         padding-left 80px
         padding-right 80px
-        margin-bottom 80px
         margin-top 20vh
-        // margin-bottom 80px
-        display: flex
-        justify-content: space-evenly
-
-    #threats-display
-        position relative
+        width max-content-width
+        
+    #threats-circle-container
+        position sticky
+        top 0
         width 50%
+        height 100vh
 
         #threats-circle
             position absolute
-            top 0 
+            top 50%
             left 0
             width 100%
             padding-bottom 100%
-            // box-sizing: border-box
-            border solid 4px white
+            border solid 4px #fff
             border-radius: 50%
+            transform: translateY(-50%)
 
         #threats-container
             position absolute
-            top 50%
-            left 50%
-            transform translate(-50%, -50%)
+            top 0
+            left 0
+            height 100%
+            width 100%
 
             h2
-                color white
+                color #fff
                 text-align center
-                font-size 36px
+                font-size 40px
+                line-height: 50px
+                margin-top 40px
             nav
+                position: absolute
+                bottom 40px
+                left 50%
+                transform translateX(-50%)
                 display flex
                 justify-content: center
                 padding-top 20px
+
                 a
                     height 15px
                     width 15px
@@ -57,17 +59,23 @@
                     transition transform 0.3s
                     margin-left 5px
                     cursor pointer
+                    border solid 1px #aaa
                 a.active
                     transform: scale(1.0)
 
             a#threats-call-to-action
-                margin auto
+                display: block
+                position absolute
+                bottom 70px
+                left 50%
+                transform translateX(-50%)
         
         #threats-content
-            position relative
-            height: 280px
-            width 320px
-            margin auto
+            position: absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
             
             .active
                 opacity: 1
@@ -77,30 +85,97 @@
             position absolute
             top 50%
             left 50%
-            width 100%
+            width 86%
             transform translate(-50%, -50%)
             opacity 0
             z-index -1
             text-align center
             transition: opacity 0.5s ease-out
+
             h3
-                font-size: 32px
+                font-size: 30px
             p
                 line-height 140%
                 text-align: left
                 padding 10px
 
-    #threats-right-decoration
+    #threats-right-container
         width 50%
-        h1
-            color white
-            font-size: 56px
-            margin-bottom 40px
-            margin-left 20px
-        #decoration-arrow
-            margin-left 20px
-            width 80px
-            height 80px
-            background-image: url("/img/arrow.svg")
-            background-size: contain
-            background-repeat: no-repeat
+        margin-left auto
+        padding 0 15px
+        margin-top -50vh
+        box-sizing: border-box
+
+        .right-frame
+            min-height 100vh
+            padding-bottom 160px
+        
+            h2
+                color #fff
+                font-size 70px
+                line-height 80px
+                margin-bottom 40px
+            
+            h3
+                color #fff
+                font-size 50px
+                line-height: 53px
+                margin-top 40px
+                padding-left 30px
+                margin-bottom 20px
+
+            p                 
+                padding-left 30px
+            
+            .activatable-container
+                h3
+                    padding-right 50px
+                    position relative
+                p
+                    opacity 0
+                    z-index: -1
+                    transition: opacity 0.3s
+                    user-select: none
+
+            button
+                @extends .dropshadow
+                position: absolute
+                right 0
+                top 9px
+                // top 50%
+                // transform translateY(-50%)
+                color cd-theme-orange
+                background-color white
+                box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
+                height 36px
+                width 60px
+                border-radius: 20px // 36(height) + 2*2(border) -> 40px total height
+                cursor pointer
+
+            button:after
+                box-shadow inset 2px 2px 5px 0 #0002
+                content ""
+                height 36px
+                width 36px
+                border-radius: 50%
+                box-sizing: border-box
+                background-color cd-button-red
+                border solid 1px white
+                box-sizing: border-box
+                position absolute
+                top 0
+                left 0
+                z-index: 2
+                transition: all 0.3s cubic-bezier(0, 0.8, 0.8, 1)
+
+            .active
+                p
+                    opacity: 1
+                    z-index: 1
+                    user-select: auto
+
+
+                button:after
+                    background-color cd-button-green
+                    transform translateX(24px)
+        

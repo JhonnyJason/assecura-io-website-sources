@@ -1,12 +1,11 @@
 section#commonthreats-section
     .content-frame
-        #threats-display
+        #threats-circle-container
             #threats-circle 
                 #threats-container
                     h2 Häufigsten<br> Cyberbedrohungen
-                    #threats-content: include content.pug
-                    a#threats-call-to-action.clickbutton(href="/protectnow.html") Protect Now 
+                    #threats-content: include circle-content.pug
+                    a#threats-call-to-action.click-button(href="/protectnow.html") Protect Now 
                     nav#threats-content-nav: include navigation.pug
-        #threats-right-decoration
-            h1 Cyber Protect
-            #decoration-arrow
+        #threats-right-container 
+            include right-frames.pug

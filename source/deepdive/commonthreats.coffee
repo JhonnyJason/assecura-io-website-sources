@@ -11,6 +11,7 @@ import *  as v from "./vanillautilmodule.js"
 borders = {}
 navElements = {}
 contentElements = {}
+rightFrames = {}
 
 ############################################################
 activeThreat = 1
@@ -18,14 +19,18 @@ activeThreat = 1
 ############################################################
 export initialize = ->
     log "initialize"
+    offsetYet = header.offsetHeight
 
-    for num in [1..5]
+    for num in [1..6]
         navElements[num] = document.getElementById("nav-threat#{num}")
         contentElements[num] = document.getElementById("threat#{num}")
-        borders[num] = header.offsetHeight + (num - 1) * window.innerHeight
+        rightFrames[num] = document.getElementById("right-threat#{num}")
+        borders[num] =  offsetYet
         borders["nav-threat#{num}"] = borders[num]
+        offsetYet += rightFrames[num].offsetHeight
         navElements[num].addEventListener("click", onNavClick)
         log "initialized threat: #{num}"
+        log "offsetYet: #{offsetYet}"
 
     return
 ############################################################
@@ -61,5 +66,6 @@ export onScroll =  ->
     if window.scrollY < borders[3] then return setThreatActive(2)
     if window.scrollY < borders[4] then return setThreatActive(3)
     if window.scrollY < borders[5] then return setThreatActive(4)
-    return setThreatActive(5)
+    if window.scrollY < borders[6] then return setThreatActive(5)
+    return setThreatActive(6)
 
