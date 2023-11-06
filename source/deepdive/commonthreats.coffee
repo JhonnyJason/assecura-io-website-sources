@@ -25,6 +25,7 @@ export initialize = ->
         navElements[num] = document.getElementById("nav-threat#{num}")
         contentElements[num] = document.getElementById("threat#{num}")
         rightFrames[num] = document.getElementById("right-threat#{num}")
+        
         borders[num] =  offsetYet
         borders["nav-threat#{num}"] = borders[num]
         offsetYet += rightFrames[num].offsetHeight
@@ -33,6 +34,8 @@ export initialize = ->
         log "offsetYet: #{offsetYet}"
 
     return
+
+    
 ############################################################
 setThreatActive = (num) ->
     return unless activeThreat != num
