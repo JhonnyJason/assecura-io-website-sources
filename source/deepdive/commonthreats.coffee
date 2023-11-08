@@ -53,12 +53,15 @@ onNavClick = (evnt) ->
     log "onNavClick"
     log evnt.target.id
     top = borders[evnt.target.id]
-    
-    if window.scrollY < borders[1] or window.scrollY > borders[5]
-        behavior = "smooth"
-    else behavior = "instant"
-    
+    top += 0.8 * window.innerHeight
+
+    # if window.scrollY < borders[1] or window.scrollY > borders[5]
+    #     behavior = "smooth"
+    # else behavior = "instant"
+
+    behavior = "smooth"
     options = { top, behavior }
+    
     window.scroll(options)
     return
 

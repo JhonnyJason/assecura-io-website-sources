@@ -9,8 +9,8 @@
     .content-frame
         // position relative
         padding-top 10vh
-        padding-left 80px
-        padding-right 80px
+        // padding-left 80px
+        // padding-right 80px
         margin-top 20vh
         width max-content-width
         
@@ -19,8 +19,9 @@
         top 0
         width 50%
         height 100vh
-        min-width 630px
-        min-height 638px
+        min-width 700px
+        min-height 700px
+        overflow: visible
 
         #threats-circle
             position absolute
@@ -44,10 +45,10 @@
                 text-align center
                 font-size 40px
                 line-height: 50px
-                margin-top 40px
+                margin-top 70px
             nav
                 position: absolute
-                bottom 40px
+                bottom 45px
                 left 50%
                 transform translateX(-50%)
                 display flex
@@ -68,7 +69,7 @@
             a#threats-call-to-action
                 display: block
                 position absolute
-                bottom 70px
+                bottom 80px
                 left 50%
                 transform translateX(-50%)
         
@@ -104,8 +105,9 @@
     #threats-right-container
         width 50%
         margin-left auto
-        padding 0 15px
-        margin-top -50vh
+        padding 0
+        padding-left 20px
+        margin-top -20vh
         box-sizing: border-box
 
         .right-frame
@@ -113,16 +115,16 @@
             min-height 100vh
             padding-bottom 50vh
         
-            h2
-                color #fff
-                font-size 70px
-                line-height 80px
-                margin-bottom 40px
-            
-            h3
+            h1
                 color #fff
                 font-size 50px
-                line-height: 53px
+                line-height 60px
+                margin-bottom 40px
+            
+            h2
+                color #fff
+                font-size 30px
+                line-height: 33px
                 margin-top 40px
                 padding-left 30px
                 margin-bottom 20px
@@ -131,7 +133,7 @@
                 padding-left 30px
             
             .activatable-container
-                h3
+                h2
                     padding-right 50px
                     position relative
                 p
@@ -142,24 +144,27 @@
 
             button
                 @extends .dropshadow
-                position: absolute
-                right 0
-                top 9px
-                // top 50%
-                // transform translateY(-50%)
+                display: inline-block
+                vertical-align: middle
+                position: relative
+                // position absolute
+                // right 0
+                // top 9px
+                // // top 50%
+                // // transform translateY(-50%)
                 color cd-theme-orange
                 background-color white
                 box-shadow 2px 2px 5px 0 #0002, inset 2px 2px 5px 0 #0002
-                height 36px
-                width 60px
-                border-radius: 20px // 36(height) + 2*2(border) -> 40px total height
+                height 26px
+                width 45px
+                border-radius: 15px // 36(height) + 2*2(border) -> 40px total height
                 cursor pointer
 
             button:after
                 box-shadow inset 2px 2px 5px 0 #0002
                 content ""
-                height 36px
-                width 36px
+                height 26px
+                width 26px
                 border-radius: 50%
                 box-sizing: border-box
                 background-color cd-button-red
