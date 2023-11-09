@@ -53,7 +53,8 @@ onNavClick = (evnt) ->
     log "onNavClick"
     log evnt.target.id
     top = borders[evnt.target.id]
-    top += 0.8 * window.innerHeight
+    if window.innerHeight >= 1440 then top += 0.8 * window.innerHeight
+    else top += 0.2 * window.innerHeight
 
     # if window.scrollY < borders[1] or window.scrollY > borders[5]
     #     behavior = "smooth"
