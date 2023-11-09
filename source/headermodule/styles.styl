@@ -1,5 +1,6 @@
 // header styles
 home-button-size = 80px
+small-button-size = 40px
 
 /*==========================================================*/
 header
@@ -48,6 +49,17 @@ header
         text-align: center
         transition: color 0.3s cubic-bezier(0,0.8,0.8,1) 
 
+#mobile-menu-button
+    display none
+    color inherit
+    width 35px
+    height: small-button-size
+    box-shadow: none
+    
+#menu-icon
+    display none
+#cross-icon
+    display none
 
 header.gone
     transform translate(-50%, -102%)
@@ -76,3 +88,33 @@ header.no-navbar
     height 40px
     line-height: 40px
     border-radius: 20px
+
+
+@media mobilescreen
+    #home-button
+        height small-button-size
+        width small-button-size
+
+    #mobile-menu-button
+        display block
+    #menu-icon
+        display  block
+    #navigation-bar
+        display none
+
+    header.mobile-menu
+        #menu-icon
+            display none
+        #cross-icon
+            display block
+
+    
+
+
+    header
+        width 90%
+        max-width: 90%
+    #header
+        grid-template-columns: small-button-size auto
+        padding 20px 0 0 0
+        

@@ -40,6 +40,8 @@ inner-content-width = 840px
 min-screen-height = 650px
 // mobile-side-padding = 15px
 
+mobilescreen = 'screen and (max-width: %s)' %  (max-content-width + 20px)
+
 /*==========================================================
  Global Classes
 ==========================================================*/
@@ -113,4 +115,35 @@ input
 label
 textarea
     font-size 16px
+    font-family: "Poppins Light"
+
+
+@media mobilescreen
+    body
+        font-size: 16px
+        line-height: 18px
+
+    h1
+        font-size: 35px
+        font-family: "Poppins Light"
+        line-height: 40px
+        text-shadow: 0 3px 6px #0002
+    h2
+        font-size: 30px
+        font-family: "Poppins Light"
+        line-height: 33px
+        text-shadow: 0 3px 6px #0002
+
+    h3
+        font-size: 20px
+        font-family: "Poppins Light"
+        line-height: 23px
+
+button
+    font-size: 16px
+
+input
+label
+textarea
+    font-size 14px
     font-family: "Poppins Light"
